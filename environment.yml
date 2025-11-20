@@ -1,0 +1,10 @@
+name: milestone1
+channels:
+  - conda-forge
+dependencies:
+  - jupyterlab
+  - pandas
+  - python
+  - conda-lock
+  - matplotlib
+prefix: /Users/harryyau/miniforge3/envs/milestone1
