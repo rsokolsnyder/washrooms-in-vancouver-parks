@@ -7,4 +7,5 @@ dependencies:
   - python
   - conda-lock
   - matplotlib
+  - altair
 prefix: /Users/harryyau/miniforge3/envs/milestone1
