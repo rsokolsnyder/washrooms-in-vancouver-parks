@@ -2,10 +2,10 @@ name: milestone1
 channels:
   - conda-forge
 dependencies:
-  - jupyterlab
-  - pandas
-  - python
-  - conda-lock
-  - matplotlib
-  - altair
-prefix: /Users/harryyau/miniforge3/envs/milestone1
+  - matplotlib=3.10.8
+  - altair=6.0.0
+  - pandas=2.3.3
+  - conda-lock=3.0.4
+  - python=3.13.9
+  - jupyterlab=4.5.0
+  - scikit-learn=1.7.2

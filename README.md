@@ -16,11 +16,27 @@ The final report can be found [insert link here]
 
 ## Usage
 
-This section will contain information about installing the required packages using the conda lock file and then running the report notebook
+If running this project for the first time, run the following code in a terminal window from the root directory of this repository
+First time running the project, run the following from the root of this repository:
+
+```
+conda-lock install --n washrooms-in-vancouver-parks conda-lock.yml
+```
+
+Then, to run the analysis, open an instance of Jupyter Lab from the root of this repository using the command:
+
+```
+jupyter lab 
+```
+
+Next, open analysis.ipynb in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:washrooms-in-vancouver-parks]".
+
+Finally, under the "Kernel" menu, select "Restart Kernel and Run All Cells".
 
 ## Dependencies
 
-This section will list required software and versions (conda, jupyter lab etc) and reference the conda lock environment file
+`conda` (version 23.9.0 or higher)
+Python and the package dependencies listed in the [environment.yml](environment.yml) file
 
 ## License
 
