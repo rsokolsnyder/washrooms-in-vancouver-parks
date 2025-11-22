@@ -24,4 +24,8 @@ This section will list required software and versions (conda, jupyter lab etc) a
 
 The Washrooms in Vancouver Public Parks report contained in this repository is licensed under the Creative Commons Legal Code CC0 1.0 Universal License. More information can be found in the [license file](LICENSE). If re-using or modifying the report please provide attribution. All software code contained within this repository is licensed under the MIT license. Once again you can see the [license file](LICENSE) for more information
 
+## References
 
+City of Vancouver. (2025, September 22). Parks. City of Vancouver Open Data Portal. https://opendata.vancouver.ca/explore/dataset/parks/information/?sort=-parkid
+
+Timbers, T. (n.d.). breast_cancer_predictor_py [Source code]. GitHub. https://github.com/ttimbers/breast_cancer_predictor_py
