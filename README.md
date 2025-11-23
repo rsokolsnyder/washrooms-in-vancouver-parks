@@ -10,7 +10,7 @@ We retrieved the public Park data from the City of Vancouver Open Data Portal. W
 
 ## Report
 
-The final report can be found in the [python notebook](washrooms_in_parks.ipynb)
+The final report can be found in the [python notebook](notebooks/washrooms_in_parks.ipynb)
 
 ## Usage
 
@@ -27,7 +27,7 @@ Then, to run the analysis, open an instance of Jupyter Lab from the root of this
 jupyter lab 
 ```
 
-Next, open analysis.ipynb in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:washrooms-in-vancouver-parks]".
+Next, open notebooks/washrooms_in_parks.ipynb in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:washrooms-in-vancouver-parks]".
 
 Finally, under the "Kernel" menu, select "Restart Kernel and Run All Cells".
 
