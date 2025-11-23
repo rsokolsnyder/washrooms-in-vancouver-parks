@@ -1,219 +1,147 @@
-﻿ParkID;Name;Official;Advisories;SpecialFeatures;Facilities;Washrooms;StreetNumber;StreetName;EWStreet;NSStreet;NeighbourhoodName;NeighbourhoodURL;Hectare;GoogleMapDest
-2;Carnarvon Park;1;N;N;Y;Y;2995;W 19th Avenue;W 19th Avenue;Mackenzie Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;3.79;49.256555, -123.171406
-13;Coal Harbour Park;1;N;N;Y;N;480;Broughton Street;W Hastings Street;Broughton Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.95;49.289981, -123.125015
-16;David Lam Park;1;N;Y;Y;Y;1300;Pacific Boulevard;Drake Street;Pacific Boulevard;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;4.34;49.272569, -123.124145
-25;May & Lorne Brown Park;1;N;N;N;N;801;Beach Avenue;Beach Avenue;Hornby Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.25;49.275188, -123.132046
-26;Pioneer Place (Pigeon Park);1;N;N;N;N;399;Carrall Street;W Hastings Street;Carrall Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.03;49.281699, -123.104588
-27;Portal Park;1;N;N;N;N;1099;W Hastings Street;W Hastings Street;Thurlow Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.1;49.288042, -123.119169
-28;CRAB Park at Portside;1;N;N;Y;Y;101;E Waterfront Road;E Waterfront Road;Main Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;3.31;49.284942, -123.102377
-29;Roundhouse Turntable Plaza;1;N;N;Y;N;181;Roundhouse Mews;Roundhouse Mews;Pacific Boulevard;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.91;49.273379, -123.121603
-34;Balaclava Park;1;N;N;Y;Y;4594;Balaclava Street;W 29th Avenue;Balaclava Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;5.0;49.244951, -123.175247
-37;Chaldecott Park;1;N;N;Y;Y;4175;Wallace Street;King Edward Avenue;Wallace Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;3.45;49.249092, -123.192177
-40;Musqueam Park;1;N;N;Y;N;4000;SW Marine Drive;SW Marine Drive;Crown Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;22.05;49.229331, -123.18998
-43;Charleson Park;1;N;Y;Y;N;999;Charleson Street;Charleson Street;Laurel Street;Fairview;https://vancouver.ca/news-calendar/fairview.aspx;7.14;49.266995, -123.1242
-44;Granville Park;1;N;N;Y;Y;3001;Fir Street;W 14th Avenue;Fir Street;Fairview;https://vancouver.ca/news-calendar/fairview.aspx;1.96;49.258105, -123.142395
-45;Granville Loop Park;0;N;N;Y;N;1435;W 5th Avenue;W 5th Avenue;Granville Street;Fairview;https://vancouver.ca/news-calendar/fairview.aspx;1.05;49.267284, -123.13754
-51;Garden Park;1;N;N;Y;Y;1851;Garden Drive;E 3rd Avenue;Garden Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.97;49.268159, -123.058994
-52;Grandview Park;1;N;N;Y;Y;1255;Commercial Drive;Charles Street;Commercial Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.89;49.273511, -123.070469
-53;McGill Park;1;N;N;N;N;2305;McGill Street;McGill Street;Garden Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.19;49.288668, -123.057154
-56;Oxford Park;1;N;N;Y;N;2050;Wall Street;Oxford Street;Wall Street;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.22;49.286172, -123.062223
-64;Woodland Park;1;N;N;Y;Y;705;Woodland Drive;Adanac Street;Woodland Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;1.58;49.278526, -123.073387
-65;Adanac Park;1;N;N;Y;Y;1025;Boundary Road;Adanac Street;Boundary Road;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;4.17;49.276381, -123.025811
-66;Bates Park;1;N;N;N;N;669;Fellowes Street;Fellowes Street;High Road;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;0.3;49.292443, -123.024336
-70;Clinton Park;1;N;N;Y;Y;2690;Grant Street;Grant Street;Slocan Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;3.04;49.270355, -123.0509
-71;Dusty Greenwell Park;1;N;N;Y;N;2799;Wall Street;Wall Street;North Kaslo Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;0.44;49.292113, -123.047643
-72;Hastings Park;1;N;N;Y;Y;2901;E Hastings;E Hastings Street;Renfrew Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;62.0;49.282256, -123.039776
-75;New Brighton Park;1;N;N;Y;Y;3201;New Brighton Road;New Brighton Road;N Windermere Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;10.0;49.290122, -123.037888
-76;Rupert Park;1;N;N;Y;Y;1600;Rupert Street;E 1st Avenue;Rupert Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;11.43;49.271629, -123.031384
-84;Grays Park;1;N;N;Y;Y;4850;St. Catherines Street;E 33rd Avenue;St. Catherines Street;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;1.61;49.241136, -123.084974
-85;John Hendry (Trout Lake) Park;1;N;N;Y;Y;3300;Victoria Drive;E 15th Avenue;Victoria Drive;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;27.31;49.255808, -123.062242
-90;Arbutus Park;1;N;N;Y;N;7601;Arbutus Street;SW Marine Drive;Arbutus Street;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;0.74;49.21659, -123.15513
-91;Elm Park;1;N;N;Y;Y;5800;Elm Street;W 41st Avenue;Elm Street;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;1.49;49.233847, -123.163488
-96;Maple Grove Park;1;N;N;Y;Y;6875;Yew Street;W 51st Avenue;Yew Street;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;4.2;49.223703, -123.16013
-99;Captain Cook Park;1;N;N;Y;N;3398;E 54th Avenue;E 54th Avenue;Champlain Crescent;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;5.49;49.21912, -123.033713
-100;Champlain Heights Park;1;N;N;Y;N;3351;Maquinna Drive;Maquinna Drive;Champlain Crescent;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;7.84;49.215527, -123.032545
-102;Fraserview Golf Course;1;N;N;Y;Y;7800;Vivian Drive;E 54th Avenue;Vivian Drive;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;84.34;49.212251, -123.047869
-105;Sparwood Park;1;N;N;Y;N;6998;Arlington Street;Whithorn Court;Arlington Street;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;3.6;49.220024, -123.028777
-110;Hadden Park;1;N;Y;Y;Y;1905;Ogden Avenue;Ogden Avenue;Cypress Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;2.92;49.275353, -123.152513
-112;Kitsilano Beach Park;1;N;Y;Y;Y;1499;Arbutus Street;Cornwall Avenue;Arbutus Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;13.47;49.273431, -123.153901
-116;Point Grey Park Site at Stephens Street;0;N;N;N;N;2699;Point Grey Road;Point Grey Road;Stephens Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.23;49.272583, -123.166128
-117;Point Grey Park Site at Trafalgar Street;0;N;N;N;N;2601;Point Grey Road;Point Grey Road;Trafalgar Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.22;49.273329, -123.164637
-118;Seaforth Peace Park;1;N;N;N;N;1620;Chestnut Street;Cornwall Avenue;Chestnut Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.74;49.271554, -123.145967
-134;China Creek South Park;1;N;N;Y;N;1255;E 10th Avenue;E 10th Avenue;Clark Drive;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;1.47;49.261581, -123.079352
-138;Major Matthews Park;1;N;N;Y;N;2627;Manitoba Street;W 11th Avenue;Manitoba Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;0.06;49.26158, -123.107238
-141;Tea Swamp Park;1;N;N;Y;N;266;E 15th Avenue;E 15th Avenue;Sophia Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;0.09;49.257091, -123.098595
-145;Langara Golf Course;1;N;N;Y;N;6706;Alberta Street;W 49th Avenue;Alberta Street;South Cambie;https://vancouver.ca/news-calendar/south-cambie.aspx;48.57;49.221371, -123.11211
-150;Carleton Park;1;N;N;Y;N;3450;Price Street;Price Street;Joyce Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;0.68;49.242002, -123.030451
-152;Earles Park;1;N;N;Y;N;2801;E 41st Avenue;E 41st Avenue;Earles Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;1.59;49.233476, -123.047702
-153;Falaise Park;1;N;N;Y;Y;3434;Falaise Avenue;Worthington Drive;Falaise Avenue;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;7.57;49.256485, -123.031631
-155;Gaston Park;1;N;N;Y;N;3470;Crowley Drive;Crowley Drive;Tyne Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;1.5;49.236117, -123.031094
-166;Prince Edward Park;1;N;N;Y;Y;3773;Prince Edward Street;E 21st Avenue;Prince Edward Street;Riley Park;https://vancouver.ca/news-calendar/renfrew.aspx;1.21;49.251692, -123.097024
-169;Angus Park;1;N;N;N;N;3600;Angus Drive;Alexandra Street;Angus Drive;Shaughnessy;https://vancouver.ca/news-calendar/shaughnessy.aspx;1.0;49.253932, -123.143816
-170;Devonshire Park;1;N;N;N;N;1250;Devonshire Crescent;Devonshire Crescent;Selkirk Street;Shaughnessy;https://vancouver.ca/news-calendar/shaughnessy.aspx;1.53;49.24502, -123.13364
-172;Shaughnessy Park;1;N;N;N;N;1300;The Crescent;The Crescent;Hudson Street;Shaughnessy;https://vancouver.ca/news-calendar/shaughnessy.aspx;1.45;49.255715, -123.135068
-177;Heather Park;1;N;N;Y;N;702;W 18th Avenue;W 18th Avenue;Heather Street;South Cambie;https://vancouver.ca/news-calendar/south-cambie.aspx;0.98;49.254765, -123.121103
-193;Gladstone-Riverside Park;1;N;N;N;N;2500;E Kent Street S;E Kent Street S;Nanaimo Street;Victoria-Fraserview;https://vancouver.ca/news-calendar/victoria-fraserview.aspx;1.07;49.205532, -123.056883
-195;Humm Park;1;N;N;Y;N;7250;Humm Street;Upland Drive;Humm Street;Victoria-Fraserview;https://vancouver.ca/news-calendar/victoria-fraserview.aspx;0.47;49.218698, -123.063266
-196;Nanaimo Park;1;N;N;Y;Y;2390;E 46th Avenue;E 46th Avenue;Nanaimo Street;Victoria-Fraserview;https://vancouver.ca/news-calendar/victoria-fraserview.aspx;2.91;49.227724, -123.057508
-197;Riverfront Park;1;N;N;Y;Y;2750;E Kent Ave S;E Kent Ave S;Elliott Street;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;4.01;49.205951, -123.04575
-198;Tecumseh Park;1;N;N;Y;N;1751;E 45th Avenue;E 45th Avenue;Bruce Street;Victoria-Fraserview;https://vancouver.ca/news-calendar/victoria-fraserview.aspx;2.09;49.229752, -123.069846
-202;Morton Park;1;N;N;N;N;1800;Morton Avenue;Morton Avenue;Denman Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;0.22;49.28768, -123.141955
-203;Nelson Park;1;N;N;Y;N;1030;Bute Street;Nelson Street;Bute Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;1.16;49.282855, -123.129558
-207;Sunset Beach Park;1;N;Y;Y;Y;1204;Beach Avenue;Beach Avenue;Bute Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;3.61;49.281211, -123.139681
-220;Spanish Banks Beach Park;1;N;Y;Y;Y;4801;NW Marine Drive;NW Marine Drive;Blanca Street;West Point Grey;https://vancouver.ca/news-calendar/point-grey.aspx;6.53;49.277063, -123.216909
-221;West Point Grey Park;1;N;N;Y;Y;2250;Trimble Street;W 8th Avenue;Trimble Street;West Point Grey;https://vancouver.ca/news-calendar/point-grey.aspx;3.4;49.266301, -123.204312
-224;Choklit Park;1;N;N;N;N;2400;Spruce Street;W 7th Avenue;Spruce Street;Fairview;https://vancouver.ca/news-calendar/fairview.aspx;0.07;49.265482, -123.128905
-225;George Wainborn Park;1;N;Y;N;N;450;Beach Crescent;Beach Crescent;;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;2.49;49.272541, -123.129311
-231;Camosun;0;N;N;N;N;4102;W 16th Avenue;W 16th Avenue;Discovery Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;0.0;49.257423, -123.201329
-246;Creekway Park;1;N;N;N;N;2901;E Hastings Street;McGill Street;;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;8.0;49.288336, -123.036982
-249;Shannon Mews;1;N;N;Y;N;1551;W 57th Ave;W 57th Ave;Granville Street;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;0.69;49.21978389371605, -123.141960658531
-3;Prince of Wales Park;1;N;N;Y;N;4780;Haggart Street;W 32nd Avenue;Haggart Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;2.89;49.244397, -123.156429
-4;Park Site on Puget Drive;0;N;N;N;N;4309;Puget Drive;Puget Drive;MacDonald Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;0.09;49.247723, -123.168194
-5;Park Site on Quesnel Drive;0;N;N;N;N;4301;Quesnel Drive;Quesnel Drive;MacKenzie Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;0.03;49.247623, -123.169948
-6;Quilchena Park;1;N;Y;Y;Y;4590;Magnolia Street;W 33rd Avenue;Magnolia Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;7.67;49.24369, -123.148865
-7;Ravine Park;1;N;N;N;N;2159;W 36th Avenue;W 36th Avenue;Arbutus Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;0.72;49.240902, -123.155935
-9;Park Site on Trafalgar Street;0;N;N;N;N;4600;Trafalgar Street;W 31st Avenue;Trafalgar Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;0.14;49.244396, -123.165105
-10;Andy Livingstone Park;1;N;N;Y;Y;89;Expo Boulevard;Expo Boulevard;Carrall Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;4.21;49.278923, -123.1055
-11;Cardero Park;1;N;Y;N;N;1601;Bayshore Drive;Bayshore Drive;Cardero Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;0.33;49.292211, -123.128206
-12;Cathedral Square;1;N;N;N;N;566;Richards Street;Dunsmuir Street;Richards Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.27;49.282084, -123.113877
-15;Creekside Park;1;N;Y;Y;N;1455;Quebec Street;Terminal Avenue;Quebec Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;2.53;49.274415, -123.102924
-19;Art Phillips Park;1;N;N;N;N;625;Burrard Street;Melville Street;Burrard Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.1;49.285911, -123.120948
-21;Harbour Green Park;1;N;Y;Y;Y;1199;W Cordova Street;W Cordova Street;Bute Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;3.1;49.290263, -123.121924
-23;Helmcken Park;1;N;N;N;N;1103;Pacific Boulevard;Helmcken Street;Pacific Boulevard;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.17;49.274814, -123.119555
-24;Marina Square;1;N;Y;N;N;1675;Bayshore Drive;Bayshore Drive;Denman Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.63;49.292334, -123.131296
-30;Sun Yat-Sen Gardens;1;N;N;N;N;578;Carrall Street;Keefer Street;Carrall Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.83;49.279691, -123.104233
-31;Victory Square;1;N;N;N;N;200;W Hastings Street;W Hastings Street;Cambie Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.39;49.282218, -123.110133
-35;Park Site on Blenheim;1;N;N;N;N;3500;Quadra Street;W 19th Avenue;Quadra Street;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;0.07;49.255575, -123.178934
-39;Memorial West Park;1;N;N;Y;Y;4747;Dunbar Street;W 31st Avenue;Dunbar Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;7.49;49.243326, -123.188166
-41;Quadra West Park;1;N;N;N;N;3250;Quadra Street;W 17th Avenue;Quadra Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;0.17;49.257112, -123.180696
-47;Sutcliffe Park;1;N;Y;Y;N;1318;Cartwright Street;Island Park Walk;Old Bridge Walk;Fairview;https://vancouver.ca/news-calendar/fairview.aspx;2.88;49.268871, -123.134832
-57;Pandora Park;1;N;N;Y;Y;2325;Franklin Street;Franklin Street;Garden Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;1.66;49.282533, -123.058045
-60;Templeton Park;1;N;N;Y;N;700;Templeton Drive;Adanac Street;Templeton Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;1.93;49.278279, -123.058646
-61;Park Site on Trinity Street;1;N;N;N;N;2303;Wall Street;Trinity Street;Wall Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;0.1;49.289561, -123.059459
-69;Charles Park;1;N;N;N;N;3400;Charles Street;Charles Street;Kootenay Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;1.55;49.273407, -123.027661
-78;Thunderbird Park;1;N;N;Y;N;3485;E 2nd Avenue;E 2nd Avenue;Skeena Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;0.89;49.268829, -123.028552
-80;Cedar Cottage Park;1;N;N;Y;N;2650;Clark Drive;E 11th Avenue;Clark Drive;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;0.47;49.260807, -123.076605
-82;General Brock Park;1;N;N;Y;N;2301;Brock Street;Brock Street;Baldwin Street;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;2.11;49.244757, -123.058517
-87;Kensington Park;1;N;N;Y;N;5175;Dumfries Street;E 37th Avenue;Dumfries Street;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;5.84;49.238478, -123.075308
-88;Kingcrest Park;1;N;N;Y;N;4150;Knight Street;E 26th Avenue;Knight Street;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;2.41;49.247499, -123.074674
-92;Fraser River Park;1;N;N;Y;Y;8705;Angus Drive;W 75th Avenue;Angus Drive;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;9.1;49.207915, -123.150862
-93;Kerrisdale Centennial Park;1;N;N;Y;N;5898;Yew Street;W 42nd Avenue;Yew Street;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;1.53;49.233094, -123.158043
-111;Jean Beaty Park;1;N;N;N;N;3393;Point Grey Road;Point Grey Road;Waterloo Street;West Point Grey;https://vancouver.ca/news-calendar/point-grey.aspx;0.04;49.271913, -123.179433
-113;Margaret Pigott Park;1;N;N;N;N;2743;Point Grey Road;Point Grey Road;Macdonald Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.38;49.272089, -123.167454
-119;Tatlow Park;1;N;N;Y;Y;2845;W 3rd Avenue;Point Grey Road;Point Grey Road;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;1.4;49.270068, -123.169609
-120;Vanier Park;1;N;Y;N;Y;1000;Chestnut Street;Whyte Avenue;Chestnut Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;16.95;49.277049, -123.143159
-121;Volunteer Park;1;N;N;N;N;2855;Point Grey Road;Point Grey Road;Macdonald Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.72;49.271635, -123.169243
-122;Ash Park;1;N;N;Y;N;8288;Ash Street;W 68th Avenue;Ash Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.51;49.210597, -123.119435
-123;Eburne Park;1;N;N;Y;N;950;W 71st Avenue;W 71st Avenue;Oak Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.9;49.206517, -123.129241
-124;Marpole Park;1;N;N;Y;N;1410;W 72nd Avenue;W 72nd Avenue;Cartier Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.27;49.205507, -123.138307
-128;Shannon Park;1;N;N;Y;N;1575;W 62nd Avenue;W 62nd Avenue;Adera Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.94;49.215457, -123.142529
-130;William Mackie Park;1;N;N;Y;N;1592;W 71st Avenue;W 71st Avenue;SW Marine Drive;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.37;49.206787, -123.142733
-133;China Creek North Park;1;N;N;Y;N;1001;E 7th Avenue;E 7th Avenue;Glen Drive;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;3.16;49.264901, -123.083355
-139;Mount Pleasant Park;1;N;N;Y;N;3161;Ontario Street;W 16th Avenue;Ontario Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;1.12;49.25696, -123.106743
-146;Montgomery Park;1;N;N;Y;Y;1040;W 43rd Avenue;W 43rd Avenue;Montgomery Street;Oakridge;https://vancouver.ca/news-calendar/oakridge.aspx;4.02;49.231291, -123.130776
-149;Cariboo Park;1;N;N;Y;N;3450;E 29th Avenue;E 29th Avenue;Cariboo Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;0.77;49.244232, -123.028792
-154;Foster Park;1;N;N;Y;N;5501;Aberdeen Street;Foster Avenue;Aberdeen Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;0.29;49.234046, -123.028741
-156;Melbourne Park;1;N;N;Y;N;3530;Vanness Avenue;Vanness Avenue;Melbourne Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;0.49;49.236236, -123.029179
-158;Price Park;1;N;N;Y;N;3650;Price Street;Price Street;Boundary Road;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;0.35;49.251572, -123.097564
-162;Cartier Park;1;N;N;Y;N;390;E 36th Avenue;E 36th Avenue;Prince Edward Street;Riley Park;https://vancouver.ca/news-calendar/renfrew.aspx;0.37;49.237598, -123.097473
-165;Nat Bailey Stadium;1;N;N;Y;N;4601;Ontario Street;W 30th Avenue;Ontario Street;Riley Park;https://vancouver.ca/news-calendar/renfrew.aspx;6.21;49.242653, -123.106679
-174;Braemar Park;1;N;N;Y;Y;895;W 27th Avenue;W 27th Avenue;Willow Street;South Cambie;https://vancouver.ca/news-calendar/south-cambie.aspx;1.26;49.247615, -123.12363
-175;Douglas Park;1;N;N;Y;N;801;W 22nd Avenue;W 22nd Avenue;Heather Street;South Cambie;https://vancouver.ca/news-calendar/south-cambie.aspx;5.32;49.252493, -123.122225
-179;MacLean Park;1;N;N;Y;Y;710;Keefer Street;Keefer Street;Heatley Avenue;Strathcona;https://vancouver.ca/news-calendar/strathcona.aspx;1.21;49.278838, -123.088396
-180;Oppenheimer Park;1;N;Y;Y;Y;488;Powell Street;Powell Street;Jackson Street;Strathcona;https://vancouver.ca/news-calendar/strathcona.aspx;1.0;49.282645, -123.094313
-182;Strathcona Linear Park;1;N;N;Y;N;787;Prior Street;Prior Street;Hawks Avenue;Strathcona;https://vancouver.ca/news-calendar/strathcona.aspx;0.3;49.276983, -123.087485
-185;MacDonald Park;1;N;N;Y;N;300;E 44th Avenue;E 44th Avenue;Prince Edward Street;Sunset;https://vancouver.ca/news-calendar/sunset.aspx;1.05;49.229748, -123.098396
-189;Sunset Park;1;N;N;Y;N;404;E 51st Avenue;E 51st Avenue;Prince Edward Street;Sunset;https://vancouver.ca/news-calendar/sunset.aspx;3.42;49.222561, -123.096916
-191;Bobolink Park;1;N;N;Y;Y;2510;Hoylake Avenue;Hoylake Avenue;Muirfield Drive;Victoria-Fraserview;https://vancouver.ca/news-calendar/victoria-fraserview.aspx;3.82;49.215075, -123.057615
-201;English Bay Beach Park;1;N;Y;Y;Y;1700;Beach Avenue;Beach Avenue;Bidwell Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;9.83;49.287118, -123.143317
-206;Stanley Park;1;N;Y;Y;Y;2000;W Georgia Street;W Georgia Street;Chilco Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;400.0;49.302701, -123.144307
-208;Rosemary Brown Park;0;N;N;N;N;2299;Redbud Lane;W 11th Avenue;Vine Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.12;49.261821, -123.157388
-212;Sahalli Park;0;N;N;N;N;2300;Fraser Street;E 7th Avenue;Fraser Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;0.06;49.263885, -123.089121
-218;Jericho Beach Park;1;N;N;Y;Y;3941;Point Grey Road;Point Grey Road;Wallace Street;West Point Grey;https://vancouver.ca/news-calendar/point-grey.aspx;46.71;49.271513, -123.197415
-219;Locarno Park;1;N;N;Y;Y;4445;NW Marine Drive;NW Marine Drive;Trimble Street;West Point Grey;https://vancouver.ca/news-calendar/point-grey.aspx;19.0;49.273015, -123.207284
-228;Oak Meadows Park;0;N;Y;Y;N;899;W 37th Avenue;W 37th Avenue;Oak Street;South Cambie;https://vancouver.ca/news-calendar/south-cambie.aspx;5.0;49.238445, -123.125795
-234;Aberdeen Park;1;N;N;Y;N;3525;Foster Avenue;Foster Avenue;Aberdeen Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;1.0;49.234765, -123.027446
-236;Ebisu Park;0;N;N;Y;N;8805;Olser Street;W 72nd Avenue;Olser Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.4;49.205468, -123.132836
-240;Hinge Park;0;N;N;Y;N;215;W 1st Avenue;W 1st Avenue;Columbia Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;0.95;49.270869, -123.110533
-245;Trillium Park;0;N;N;Y;Y;600;National Avenue;National Avenue;Thornton Street;Strathcona;https://vancouver.ca/news-calendar/strathcona.aspx;3.05;49.275015, -123.093116
-247;McAuley Park;1;N;N;N;N;699;Kingsway;Kingsway;Fraser Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;0.0;49.256978, -123.09
-248;s??q?lxen?m'ts'exwts'a?xwi7;1;N;N;Y;N;860;Richards Street;Richards Street;Smithe Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.32;49.28477, -123.11862
-1;Arbutus Village Park;1;N;N;Y;N;4202;Valley Drive;King Edward Avenue;Valley Drive;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;1.41;49.249783, -123.15525
-8;Trafalgar Park;1;N;N;Y;Y;2610;W 23rd Avenue;W 23rd Avenue;Valley Drive;Arbutus-Ridge;https://vancouver.ca/news-calendar/arbutus-ridge.aspx;4.85;49.25046, -123.161879
-14;Coopers' Park;1;N;Y;Y;N;1020;Marinaside Crescent;Nelson Street;Marinaside Crescent;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;1.71;49.273253, -123.1139
-18;Devonian Harbour Park;1;N;Y;Y;N;1929;W Georgia Street;W Georgia Street;Denman Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;4.42;49.294353, -123.134654
-20;Emery Barnes Park;1;N;N;Y;N;1170;Richards Street;Davie Street;Richards Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.85;49.276458, -123.123995
-32;Wendy Poole Park;1;N;N;N;N;199;Alexander Street;Alexander Street;Main Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.04;49.284296, -123.099666
-38;Deering Island Park;1;N;N;N;N;3530;Deering Island Pl.;Deering Island Place;Carrington Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;0.74;49.218288, -123.184356
-42;Valdez Park;1;N;N;Y;N;3210;W 22nd Avenue;W 22nd Avenue;Balaclava Street;Dunbar-Southlands;https://vancouver.ca/news-calendar/dunbar-southlands.aspx;0.77;49.252391, -123.1764
-48;Willow Park;1;N;N;N;N;802;W 7th Avenue;W 7th Avenue;Willow Street;Fairview;https://vancouver.ca/news-calendar/fairview.aspx;0.07;49.264868, -123.122031
-49;Alice Townley Park;1;N;N;N;N;1775;Woodland Drive;E 2nd Avenue;Woodland Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.22;49.268974, -123.073923
-50;Cambridge Park;1;N;N;N;N;2099;Wall Street;Cambridge Street;Wall Street;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.19;49.286753, -123.062784
-54;McSpadden Park;1;N;N;Y;N;2125;Victoria Drive;E 5th Avenue;Victoria Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;1.62;49.265936, -123.066601
-55;Mosaic Creek Park;1;N;N;N;N;1475;Charles Street;Charles Street;McLean Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.11;49.273323, -123.074121
-58;Salsbury Park;1;N;N;N;N;1806;Adanac Street;Adanac Street;Salsbury Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.17;49.277291, -123.067926
-62;Victoria Park;1;N;N;Y;Y;1425;Victoria Drive;Kitchener Street;Victoria Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.89;49.271694, -123.06673
-63;W.C. Shelly Park;1;N;N;Y;N;1500;E 8th Avenue;E 8th Avenue;Woodland Drive;Grandview-Woodland;https://vancouver.ca/news-calendar/grandview-woodland.aspx;0.3;49.263034, -123.072931
-67;Burrard View Park;1;N;N;Y;Y;650;North Penticton Street;Wall Street;N Penticton Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;2.76;49.291253, -123.050513
-68;Callister Park;1;N;N;Y;N;2875;Oxford Street;Oxford Street;Renfrew Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;1.45;49.286214, -123.045363
-73;Hastings Community Park;1;N;N;Y;Y;3000;E Pender Street;E Pender Street;E Hastings Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;4.19;49.280637, -123.038884
-74;Kaslo Park;1;N;N;Y;N;2851;E 7th Avenue;E 7th Avenue;Kaslo Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;0.45;49.264099, -123.046012
-77;Sunrise Park;1;N;N;Y;Y;1950;Windermere Street;E 5th Avenue;Windermere Street;Hastings-Sunrise;https://vancouver.ca/news-calendar/hastings-sunrise.aspx;3.18;49.266612, -123.035037
-79;Brewers Park;1;N;N;Y;Y;4175;Victoria Drive;E 26th Avenue;Victoria Drive;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;1.38;49.247695, -123.066461
-81;Clark Park;1;N;N;Y;N;1500;E 14th Avenue;E 14th Avenue;Commercial Drive;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;4.28;49.257142, -123.072405
-83;Glen Park;1;N;N;Y;N;3999;Glen Drive;E 24th Avenue;Glen Drive;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;1.09;49.249576, -123.082823
-86;Jones Park;1;N;N;Y;Y;5350;Commercial Street;E 38th Avenue;Commercial Street;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;1.42;49.235945, -123.067051
-89;Sunnyside Park;1;N;N;Y;N;1100;E 17th Avenue;E 17th Avenue;Inverness Street;Kensington-Cedar Cottage;https://vancouver.ca/news-calendar/kensington-cedar-cottage.aspx;0.97;49.254924, -123.080752
-95;Malkin Park;1;N;N;N;N;6001;Balaclava Street;W 44th Avenue;Balaclava Street;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;2.42;49.231959, -123.176845
-97;McCleery Park;1;N;N;N;N;6501;Marine Crescent;W 49th Avenue;Marine Crescent;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;0.25;49.226973, -123.164155
-98;McCleery Golf Course;1;N;N;Y;N;7188;Macdonald Street;W 55th Avenue;MacDonald Street;Kerrisdale;https://vancouver.ca/news-calendar/kerrisdale.aspx;48.57;49.220813, -123.170066
-101;Everett Crowley Park;1;N;N;Y;N;8200;Kerr Street;SE Marine Drive;Kerr Street;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;38.08;49.210985, -123.036321
-103;Killarney Park;1;N;N;Y;N;6205;Kerr Street;Waverley Street;Kerr Street;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;13.36;49.227998, -123.04413
-104;Kinross Ravine Park;1;N;N;N;N;3350;SE Marine Drive;3350 SE Marine Drive;Kinross Street;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;1.2;49.207509, -123.036128
-106;Almond Park;1;N;N;Y;N;3600;W 12th Avenue;W 12th Avenue;Dunbar Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;1.61;49.261014, -123.184543
-108;Connaught Park;1;N;N;Y;N;2390;W 10th Avenue;W 10th Avenue;Vine Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;5.98;49.262026, -123.160025
-109;Delamont Park;1;N;N;Y;N;2091;W 7th Avenue;W 7th Avenue;Arbutus Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.22;49.265808, -123.152426
-114;McBride Park;1;N;N;Y;Y;3350;W 4th Avenue;W 4th Avenue;Waterloo Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;1.71;49.268073, -123.179732
-115;Point Grey Park Site at Musqueamview Street;1;N;N;N;N;3215;Point Grey Road;Point Grey Road;Musqueamview Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;0.22;49.271658, -123.17617
-126;Oak Park;1;N;N;Y;Y;900;W 59th Avenue;W 59th Avenue;Oak Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;5.25;49.215497, -123.128319
-127;Riverview Park;1;N;N;Y;N;1751;W 66th Avenue;W 66th Avenue;Angus Drive;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;2.38;49.212238, -123.147342
-131;Winona Park;1;N;N;Y;Y;7575;Columbia Street;W 59th Avenue;Columbia Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;5.31;49.215431, -123.114024
-136;Guelph Park;1;N;N;Y;N;2390;Brunswick Street;E 7th Avenue;Brunswick Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;1.04;49.263965, -123.095837
-137;Jonathan Rogers Park;1;N;N;Y;Y;110;W 7th Avenue;W 7th Avenue;Manitoba Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;1.4;49.264334, -123.108174
-140;Robson Park;1;N;N;Y;Y;599;Kingsway;Kingsway;St. George Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;1.56;49.258229, -123.091798
-142;Cambie Park;1;N;N;N;N;500;W 54th Avenue;W 54th Avenue;Cambie Street;Oakridge;https://vancouver.ca/news-calendar/oakridge.aspx;0.93;49.221411, -123.117988
-143;Columbia Park;1;N;N;Y;Y;5908;Alberta Street;W 42nd Avenue;Alberta Street;Oakridge;https://vancouver.ca/news-calendar/oakridge.aspx;2.78;49.231521, -123.111978
-147;Tisdall Park;1;N;Y;Y;N;6210;Tisdall Street;W 49th Avenue;Tisdall Street;Oakridge;https://vancouver.ca/news-calendar/oakridge.aspx;5.02;49.227725, -123.119693
-148;Beaconsfield Park;1;N;N;Y;Y;3215;Slocan Street;E 15th Avenue;Slocan Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;4.43;49.255546, -123.051302
-151;Collingwood Park;1;N;N;Y;Y;5275;McKinnon Street;Euclid Street;McKinnon Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;1.27;49.237066, -123.036887
-157;Norquay Park;1;N;N;Y;Y;5050;Wales Street;Kingsway;Wales Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;2.26;49.237098, -123.051061
-159;Renfrew Community Park;1;N;N;Y;N;2929;E 22nd Avenue;E 22nd Avenue;Renfrew Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;5.0;49.252129, -123.042896
-160;Renfrew Ravine Park;1;N;N;N;N;3900;Renfrew Street;E 24th Avenue;Renfrew Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;5.89;49.247166, -123.044111
-161;Slocan Park;1;N;N;Y;Y;2750;E 29th Avenue;E 29th Avenue;Slocan Street;Renfrew-Collingwood;https://vancouver.ca/news-calendar/renfrew.aspx;4.14;49.243921, -123.047574
-163;Grimmett Park;1;N;N;N;N;169;E 19th Avenue;E 19th Avenue;Quebec Street;Riley Park;https://vancouver.ca/news-calendar/renfrew.aspx;0.24;49.253954, -123.102003
-164;Hillcrest Park;1;N;N;Y;N;4501;Clancy Loranger Way;Midlothian Avenue;Clancy Loranger Way;Riley Park;https://vancouver.ca/news-calendar/renfrew.aspx;7.51;49.244734, -123.108417
-167;Queen Elizabeth Park;1;N;N;Y;Y;4600;Cambie Street;W 29th Avenue;Cambie Street;Riley Park;https://vancouver.ca/news-calendar/renfrew.aspx;52.98;49.240978, -123.112028
-168;Riley Park;1;N;N;Y;N;50;E 30th Avenue;E 30th Avenue;Ontario Street;Riley Park;https://vancouver.ca/news-calendar/renfrew.aspx;2.7;49.241987, -123.104361
-171;Kerrisdale Park;1;N;N;Y;N;5670;E Boulevard;W 39th Avenue;East Boulevard;Shaughnessy;https://vancouver.ca/news-calendar/shaughnessy.aspx;2.99;49.235725, -123.152674
-173;VanDusen Botanical Garden;1;N;N;Y;Y;5251;Oak Street;W 37th Avenue;Oak Street;Shaughnessy;https://vancouver.ca/news-calendar/shaughnessy.aspx;22.29;49.239181, -123.131293
-181;Strathcona Park;1;N;N;Y;Y;857;Malkin Avenue;Malkin Avenue;Hawks Avenue;Strathcona;https://vancouver.ca/news-calendar/strathcona.aspx;10.07;49.275276, -123.084674
-183;Thornton Park;1;N;N;N;N;1166;Main Street;Terminal Avenue;Main Street;Strathcona;https://vancouver.ca/news-calendar/strathcona.aspx;1.49;49.273946, -123.099212
-184;George Park;1;N;N;Y;N;500;E 63rd Avenue;E 63rd Avenue;St. George Street;Sunset;https://vancouver.ca/news-calendar/sunset.aspx;1.43;49.212608, -123.094228
-186;Memorial South Park;1;N;N;Y;Y;5955;Ross Street;E 41st Avenue;Ross Street;Sunset;https://vancouver.ca/news-calendar/sunset.aspx;13.59;49.230901, -123.085138
-187;Moberly Park;1;N;N;Y;Y;7646;Prince Albert Street;E 59th Avenue;Prince Albert Street;Sunset;https://vancouver.ca/news-calendar/sunset.aspx;3.6;49.215602, -123.086219
-188;Ross Park;1;N;N;Y;Y;7402;Ross Street;E 59th Avenue;Ross Street;Sunset;https://vancouver.ca/news-calendar/sunset.aspx;1.51;49.217276, -123.082351
-192;Fraserview Park;1;N;Y;Y;N;7595;Victoria Drive;E 61st Avenue;Victoria Drive;Victoria-Fraserview;https://vancouver.ca/news-calendar/victoria-fraserview.aspx;1.27;49.215398, -123.067572
-194;Gordon Park;1;N;N;Y;Y;6675;Commercial Street;E 49th Avenue;Commercial Street;Victoria-Fraserview;https://vancouver.ca/news-calendar/victoria-fraserview.aspx;6.51;49.22338, -123.070491
-199;Alexandra Park;1;N;N;N;N;1755;Beach Avenue;Beach Avenue;Bidwell Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;0.55;49.28546, -123.14223
-200;Barclay Heritage Square;1;N;N;Y;Y;1433;Barclay Street;Barclay Street;Nicola Street;West End;https://vancouver.ca/news-calendar/west-end.aspx;0.56;49.28718, -123.132167
-204;Rosemont Park;0;N;N;N;N;3101;Rosemont Drive;Rosemont Drive;Kerr Street;Killarney;https://vancouver.ca/news-calendar/killarney.aspx;1.36;49.215746, -123.040816
-209;Langara Park;0;N;N;N;N;200;W 49th Avenue;W 49th Avenue;Columbia Street;Oakridge;https://vancouver.ca/news-calendar/oakridge.aspx;1.21;49.225093, -123.111506
-213;Park Site on Shaughnessy Street;0;N;N;N;N;9250;Shaughnessy Street;Shaughnessy Street;;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.56;49.202224, -123.125036
-217;Hastings Mill Park;1;N;N;Y;N;1575;Alma Street;Point Grey Road;Alma Street;West Point Grey;https://vancouver.ca/news-calendar/point-grey.aspx;1.23;49.27279, -123.186689
-222;Westmount Park;1;N;N;Y;N;4651;W 2nd Avenue;W 2nd Avenue;Blanca Street;West Point Grey;https://vancouver.ca/news-calendar/point-grey.aspx;0.4;49.271852, -123.214423
-233;Arbutus Greenway Park;1;N;N;N;N;2205;W11th Avenue;W 11th Avenue;Arbutus Street;Kitsilano;https://vancouver.ca/news-calendar/kitsilano.aspx;1.08;49.262283, -123.154927
-235;Granville Island Water Park;0;N;N;Y;N;1348;Cartwright Street;;;Fairview;https://vancouver.ca/news-calendar/fairview.aspx;0.0;49.26955, -123.135064
-237;Yaletown Park;1;N;N;N;N;901;Mainland Street;Mainland Street;Nelson Street;Downtown;https://vancouver.ca/news-calendar/downtown.aspx;0.17;49.277042, -123.118921
-238;Carolina Park;1;N;N;N;N;2100;Carolina Street;E 5th Avenue;Carolina Street;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;0.08;49.266401, -123.090778
-241;Habitat Island;0;N;N;N;N;1616;Columbia Street;;;Mount Pleasant;https://vancouver.ca/news-calendar/mount-pleasant.aspx;0.6;49.27221, -123.110791
-244;Fraser River Trail;1;N;N;N;N;9149;Hudson Street;SW Marine Drive;Hudson Street;Marpole;https://vancouver.ca/news-calendar/marpole.aspx;0.35;49.200357, -123.135862
+;Park Name;Type;Location;Geo Local Area;Summer hours;Winter hours;Wheelchair access;Note;Geom;geo_point_2d
+0;Adanac Park;Park - Field House;East side, fieldhouse;Hastings-Sunrise;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.02407196073857, 49.27588096678926], ""type"": ""Point""}";49.27588096678926, -123.02407196073857
+1;Barclay Heritage Square;Community Center;Barclay Manor (WECC);West End;as per CC operating hours;as per CC operating hours;No;Maintained by Rec Center;"{""coordinates"": [-123.1325605108117, 49.28721486907015], ""type"": ""Point""}";49.28721486907015, -123.1325605108117
+2;Bobolink Park;Park - Field House;North side, fieldhouse;Victoria-Fraserview;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.0564149547593, 49.21560698536666], ""type"": ""Point""}";49.21560698536666, -123.0564149547593
+3;Burrard View Park;Park - Field House;Fieldhouse;Hastings-Sunrise;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.0496489708471, 49.29036396133096], ""type"": ""Point""}";49.29036396133096, -123.0496489708471
+4;Carnarvon Park;Park - Field House;West side, field house;Arbutus Ridge;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.17260900971546, 49.25674201569889], ""type"": ""Point""}";49.25674201569889, -123.17260900971546
+5;Chaldecott Park;Park - Field House;East side fieldhouse;Dunbar-Southlands;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.19112496215546, 49.24942695918215], ""type"": ""Point""}";49.24942695918215, -123.19112496215546
+6;Clinton Park;Park - Field House;North east corner, fieldhouse;Hastings-Sunrise;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.04978202766654, 49.27114503209186], ""type"": ""Point""}";49.27114503209186, -123.04978202766654
+7;Columbia Park;Park - Portland Loo;West Side;Oakridge;Dawn to Dusk Weekends only;Dawn to Dusk Weekends only;Yes;;"{""coordinates"": [-123.11313783023915, 49.23177479977243], ""type"": ""Point""}";49.23177479977243, -123.11313783023915
+8;David Lam Park;Park - Public Washroom;West side;Downtown;10:00 am - Dusk;10:00 am - Dusk;No;;"{""coordinates"": [-123.12541503573894, 49.272383006627635], ""type"": ""Point""}";49.272383006627635, -123.12541503573894
+9;Elm Park;Park - Field House;Central, field house;Kerrisdale;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.16328394393365, 49.23343197827387], ""type"": ""Point""}";49.23343197827387, -123.16328394393365
+10;Granville Park;Park - Field House;Central, field house;Fairview;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.1419699494165, 49.25849301101646], ""type"": ""Point""}";49.25849301101646, -123.1419699494165
+11;Harbour Green Park;Park - Public Washroom;Central;Downtown;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.12146699909357, 49.289804013552704], ""type"": ""Point""}";49.289804013552704, -123.12146699909357
+12;John Hendry (Trout Lake) Park;Park - Field House;At Trout Lake;Kensington-Cedar Cottage;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.0613879883137, 49.25392603797215], ""type"": ""Point""}";49.25392603797215, -123.0613879883137
+13;Jonathan Rogers Park;Park - Field House;North side, fieldhouse;Mount Pleasant;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.10762001604982, 49.26449802894082], ""type"": ""Point""}";49.26449802894082, -123.10762001604982
+14;Memorial South Park;Park - Field House;Oval;Sunset;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.08438800219717, 49.23073803414045], ""type"": ""Point""}";49.23073803414045, -123.08438800219717
+15;Memorial West Park;Park - Field House;Central, field house;Dunbar-Southlands;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.18845500351183, 49.243334983865445], ""type"": ""Point""}";49.243334983865445, -123.18845500351183
+16;Norquay Park;Park - Field House;West side, field house;Renfrew-Collingwood;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.05142495965826, 49.23797498982738], ""type"": ""Point""}";49.23797498982738, -123.05142495965826
+17;Strathcona Park;Park - Field House;South side, fieldhouse;Strathcona;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.08618899110526, 49.27455700573556], ""type"": ""Point""}";49.27455700573556, -123.08618899110526
+18;Sunrise Park;Park - Field House;North west corner, fieldhouse;Hastings-Sunrise;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.03601798297022, 49.26692299065219], ""type"": ""Point""}";49.26692299065219, -123.03601798297022
+19;Sunset Beach Park;Park - Field House;Concession;West End;Dawn to Dusk;7:00 am - Dusk;Yes;;"{""coordinates"": [-123.13795004381072, 49.27883701378575], ""type"": ""Point""}";49.27883701378575, -123.13795004381072
+20;Trillium Park;Park - Field House;Fieldhouses North of Fields;Strathcona;Dawn to 10:15 pm;Dawn to 10:15 pm;Yes;;"{""coordinates"": [-123.09279211961662, 49.274907788983555], ""type"": ""Point""}";49.274907788983555, -123.09279211961662
+21;Vanier Park;Park - Field House;Burrard Civic Marina;Kitsilano;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.13985594322915, 49.275196010474275], ""type"": ""Point""}";49.275196010474275, -123.13985594322915
+22;Evelyne Saller Centre;Community Center;320 Alexander St;Strathcona;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.09708430739617, 49.283874513136325], ""type"": ""Point""}";49.283874513136325, -123.09708430739617
+23;Kitsilano War Memorial;Community Center;2690 Larch St;Kitsilano;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.16185934533655, 49.26234325331626], ""type"": ""Point""}";49.26234325331626, -123.16185934533655
+24;Mount Pleasant;Community Center;1 Kingsway;Mount Pleasant;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.10022103999772, 49.264314648364575], ""type"": ""Point""}";49.264314648364575, -123.10022103999772
+25;Renfrew Park;Community Center;2929 E 22nd Av;Renfrew-Collingwood;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.04253597366504, 49.25139334511874], ""type"": ""Point""}";49.25139334511874, -123.04253597366504
+26;Roundhouse;Community Center;181 Roundhouse Mews;Downtown;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.12187292336924, 49.27331410685403], ""type"": ""Point""}";49.27331410685403, -123.12187292336924
+27;West End;Community Center;870 Denman St;West End;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.13607377734198, 49.28991296095473], ""type"": ""Point""}";49.28991296095473, -123.13607377734198
+28;Spanish Banks Beach Park;Park - Field House;East, fieldhouse;West Point Grey;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.21492003723966, 49.27624397436726], ""type"": ""Point""}";49.27624397436726, -123.21492003723966
+29;Queen Elizabeth Park;Park - Field House;Fieldhouse;Riley Park;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.11157705659876, 49.23893801685196], ""type"": ""Point""}";49.23893801685196, -123.11157705659876
+30;Queen Elizabeth Park;Park - Public Washroom;Lookout;Riley Park;7:30 am - 9:00 pm;7:30 am - 9:00 pm;No;;"{""coordinates"": [-123.1129392155845, 49.24221158928846], ""type"": ""Point""}";49.24221158928846, -123.1129392155845
+31;Rupert Park;Park - Public Washroom;Pitch & Putt (north side);Hastings-Sunrise;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.03068295983304, 49.27305000035256], ""type"": ""Point""}";49.27305000035256, -123.03068295983304
+32;VanDusen Botanical Garden;Park - Other Facilities;Floral hall;Shaughnessy;;;No;;"{""coordinates"": [-123.12955764644596, 49.2386594319526], ""type"": ""Point""}";49.2386594319526, -123.12955764644596
+33;Stanley Park;Park - Field House;Prospect Point Picnic, fieldhouse;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.14838804055677, 49.31055002745758], ""type"": ""Point""}";49.31055002745758, -123.14838804055677
+34;Stanley Park;Park - Field House;2nd Beach, fieldhouse;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.15058105411318, 49.295531100617225], ""type"": ""Point""}";49.295531100617225, -123.15058105411318
+35;Stanley Park;Park - Field House;3rd Beach, fieldhouse;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.15593104827661, 49.303152991485184], ""type"": ""Point""}";49.303152991485184, -123.15593104827661
+36;Stanley Park;Park - Public Washroom;Brockton Oval;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.1260230030714, 49.29962596371685], ""type"": ""Point""}";49.29962596371685, -123.1260230030714
+37;Stanley Park;Park - Public Washroom;Pavilion;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.13405101599092, 49.29954903031622], ""type"": ""Point""}";49.29954903031622, -123.13405101599092
+38;Kingcrest Park;Park - Public Washroom;Playground;Kensington-Cedar Cottage;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.07460205675565, 49.24731189166449], ""type"": ""Point""}";49.24731189166449, -123.07460205675565
+39;s??q?lxen?m ts'exwts'a?xwi7 (Rainbow);Park - Public Washroom;872 Richards St;Downtown;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.11893195123973, 49.278985860864495], ""type"": ""Point""}";49.278985860864495, -123.11893195123973
+40;China Creek North Park;Park - Public Washroom;south-east corner;Mount Pleasant;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.08153102730606, 49.264494245003455], ""type"": ""Point""}";49.264494245003455, -123.08153102730606
+41;Mccleery Golf Course;Park - Public Washroom;Unsure of exact location;Kerrisdale;;;;;"{""coordinates"": [-123.16787418477047, 49.2210231720367], ""type"": ""Point""}";49.2210231720367, -123.16787418477047
+42;;ComfortStation;Victory Square;Downtown;6:00am - Midnight;6:00am - Midnight;No;;"{""coordinates"": [-123.11011655435036, 49.28258498871338], ""type"": ""Point""}";49.28258498871338, -123.11011655435036
+43;;LargeAPT;Main St and Terminal Ave;Strathcona;6am - 10pm;6am - 10pm;Yes;;"{""coordinates"": [-123.09976255831502, 49.27313308782912], ""type"": ""Point""}";49.27313308782912, -123.09976255831502
+44;;SmallAPT;Robson St and Richards St;Downtown;24hrs - 24hrs;24hrs - 24hrs;No;;"{""coordinates"": [-123.11803855424998, 49.28031868986809], ""type"": ""Point""}";49.28031868986809, -123.11803855424998
+45;Garden Park;Park - Field House;North east corner, fieldhouse;Grandview-Woodland;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.05833399382524, 49.26828599758696], ""type"": ""Point""}";49.26828599758696, -123.05833399382524
+46;Gordon Park;Park - Field House;East side;Victoria-Fraserview;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.0694999779781, 49.223870044041504], ""type"": ""Point""}";49.223870044041504, -123.0694999779781
+47;Grandview Park;Park - Public Washroom;North East Corner;Grandview-Woodland;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.06995444645655, 49.27376163002874], ""type"": ""Point""}";49.27376163002874, -123.06995444645655
+48;Hadden Park;Park - Field House;West, caretaker house (actually in Kits);Kitsilano;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.15030998197221, 49.27746099219153], ""type"": ""Point""}";49.27746099219153, -123.15030998197221
+49;MacLean Park;Park - Field House;North west corner, fieldhouse;Strathcona;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.08936604005854, 49.27900702156872], ""type"": ""Point""}";49.27900702156872, -123.08936604005854
+50;Maple Grove Park;Park - Field House;Central, field house;Kerrisdale;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.15958297476698, 49.223384020699434], ""type"": ""Point""}";49.223384020699434, -123.15958297476698
+51;Prince Edward Park;Park - Field House;Sout east corner, fieldhouse;Riley Park;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.09705699407517, 49.25119097086864], ""type"": ""Point""}";49.25119097086864, -123.09705699407517
+52;Ross Park;Park - Field House;South west corner, fieldhouse;Sunset;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.08279803559799, 49.21669998012449], ""type"": ""Point""}";49.21669998012449, -123.08279803559799
+53;Slocan Park;Park - Field House;North side;Renfrew-Collingwood;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.04795201778296, 49.24443797709919], ""type"": ""Point""}";49.24443797709919, -123.04795201778296
+54;Tatlow Park;Park - Field House;South, field house;Kitsilano;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.1695119500403, 49.26947601104013], ""type"": ""Point""}";49.26947601104013, -123.1695119500403
+55;West Point Grey Park;Park - Field House;Centre;West Point Grey;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.20457956432331, 49.26654154245594], ""type"": ""Point""}";49.26654154245594, -123.20457956432331
+56;Champlain Heights;Community Center;3350 Maquinna Drive;Killarney;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.03206634777003, 49.214448061453886], ""type"": ""Point""}";49.214448061453886, -123.03206634777003
+57;Creekside;Community Center;1 Athletes Way;Mount Pleasant;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.10558600026903, 49.27178699895438], ""type"": ""Point""}";49.27178699895438, -123.10558600026903
+58;Dunbar;Community Center;4747 Dunbar St;Dunbar-Southlands;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.18825196095462, 49.24281542583886], ""type"": ""Point""}";49.24281542583886, -123.18825196095462
+59;False Creek;Community Center;1318 Cartwright St;Fairview;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.13402027146624, 49.269397069509424], ""type"": ""Point""}";49.269397069509424, -123.13402027146624
+60;Gathering Place;Community Center;609 Helmcken St;Downtown;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.12348216441738, 49.27798999137717], ""type"": ""Point""}";49.27798999137717, -123.12348216441738
+61;Marpole-Oakridge;Community Center;990 W 59th Av;Marpole;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.1286795021491, 49.21677185719873], ""type"": ""Point""}";49.21677185719873, -123.1286795021491
+62;Sunset;Community Center;6810 Main St;Sunset;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.10061043466422, 49.22286659360525], ""type"": ""Point""}";49.22286659360525, -123.10061043466422
+63;Jericho Beach Park;Park - Field House;Concession/fieldhouse;West Point Grey;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.19165896021171, 49.27158002043859], ""type"": ""Point""}";49.27158002043859, -123.19165896021171
+64;Kitsilano Beach Park;Park - Field House;Kitsilano Showboat concession;Kitsilano;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.15754296825496, 49.273014033025405], ""type"": ""Point""}";49.273014033025405, -123.15754296825496
+65;Kitsilano Beach Park;Park - Public Washroom;Lifeguard station;Kitsilano;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.15370297407691, 49.274471992371346], ""type"": ""Point""}";49.274471992371346, -123.15370297407691
+66;Queen Elizabeth Park;Park - Public Washroom;"Under ""Seasons""";Riley Park;7:30 am - 9:00 pm;7:30 am - 9:00 pm;No;;"{""coordinates"": [-123.11176444175848, 49.24182883201732], ""type"": ""Point""}";49.24182883201732, -123.11176444175848
+67;Rupert Park;Park - Field House;South side, fieldhouse;Hastings-Sunrise;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.03060498029191, 49.270135003328], ""type"": ""Point""}";49.270135003328, -123.03060498029191
+68;VanDusen Botanical Garden;Park - Other Facilities;At front entrance;Shaughnessy;;;No;;"{""coordinates"": [-123.12863834069158, 49.23851044914224], ""type"": ""Point""}";49.23851044914224, -123.12863834069158
+69;Stanley Park;Park - Public Washroom;Pitch & Putt Golf Course;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.14659902498154, 49.29303503648441], ""type"": ""Point""}";49.29303503648441, -123.14659902498154
+70;Stanley Park;Park - Public Washroom;SP Brewing;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.14658004093586, 49.292293020819386], ""type"": ""Point""}";49.292293020819386, -123.14658004093586
+71;Stanley Park;Park - Public Washroom;Lumberman's Arch;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.13070797861171, 49.302925983765704], ""type"": ""Point""}";49.302925983765704, -123.13070797861171
+72;Stanley Park;Park - Public Washroom;Aquarium plaza;;Dawn to Dusk;Dawn to Dusk;Yes;Not Managed by PB;"{""coordinates"": [-123.13070000527493, 49.29986799505929], ""type"": ""Point""}";49.29986799505929, -123.13070000527493
+73;Stanley Park;Park - Public Washroom;Chilco - Lost Lagoon;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.13859102966137, 49.29392203706443], ""type"": ""Point""}";49.29392203706443, -123.13859102966137
+74;Sunset Beach;Park - Vancouver Aquatic Center;Vancouver Aquatic Center;West End;;;;;"{""coordinates"": [-123.13542456694313, 49.27677906039137], ""type"": ""Point""}";49.27677906039137, -123.13542456694313
+75;Empire Fields - Hastings Park;Park - Field House;West Side;Hastings-Sunrise;;;;;"{""coordinates"": [-123.03430857894679, 49.28250644914754], ""type"": ""Point""}";49.28250644914754, -123.03430857894679
+76;Spanish Banks - Extension;Park - Portable Toilet;West Parking Lot;;;;;;"{""coordinates"": [-123.23169795755233, 49.2785519050673], ""type"": ""Point""}";49.2785519050673, -123.23169795755233
+77;Riley Park;Park - Public Washroom;Fieldhouse;Riley Park;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.10360324008157, 49.24203735141205], ""type"": ""Point""}";49.24203735141205, -123.10360324008157
+78;CRAB Park at Portside;Park - Portland Loo;101 E Waterfront Rd;Downtown;24 hrs;24 hrs;Yes;;"{""coordinates"": [-123.10183295751148, 49.284587647061095], ""type"": ""Point""}";49.284587647061095, -123.10183295751148
+79;Langara Golf Course;Park - Public Washroom;Exterior of Building;Oakridge;;;;;"{""coordinates"": [-123.1125147594454, 49.22388735761178], ""type"": ""Point""}";49.22388735761178, -123.1125147594454
+80;;SmallAPT;Bute St and Davie St;West End;24hrs - 24hrs;24hrs - 24hrs;No;;"{""coordinates"": [-123.1331255518689, 49.28184849173398], ""type"": ""Point""}";49.28184849173398, -123.1331255518689
+81;;SmallAPT;Nelson St and Howe St;Downtown;24hrs - 24hrs;24hrs - 24hrs;No;;"{""coordinates"": [-123.12350055300317, 49.279690790811784], ""type"": ""Point""}";49.279690790811784, -123.12350055300317
+82;;LargeAPT;Vancouver Art Gallery;Downtown;6am - 10pm;6am - 10pm;Yes;;"{""coordinates"": [-123.11984855327826, 49.28295538960404], ""type"": ""Point""}";49.28295538960404, -123.11984855327826
+83;Andy Livingstone Park;Park - Field House;South side, fieldhouse;Downtown;10:00 am - 11:00 pm;10:00 am - 11:00 pm;Yes;;"{""coordinates"": [-123.10359902275324, 49.27782096548506], ""type"": ""Point""}";49.27782096548506, -123.10359902275324
+84;Balaclava Park;Park - Field House;Central, field house;Dunbar-Southlands;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.17546094914356, 49.245233993117445], ""type"": ""Point""}";49.245233993117445, -123.17546094914356
+85;Beaconsfield Park;Park - Field House;East side, fieldhouse;Renfrew-Collingwood;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.0499339599333, 49.25523298884104], ""type"": ""Point""}";49.25523298884104, -123.0499339599333
+86;Braemar Park;Park - Field House;East edge, fieldhouse;South Cambie;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.12448302133969, 49.24742099334927], ""type"": ""Point""}";49.24742099334927, -123.12448302133969
+87;Brewers Park;Park - Field House;North east corner fieldhouse;Kensington-Cedar Cottage;Dawn to Dusk;Closed;No;;"{""coordinates"": [-123.06542594968943, 49.247854989506635], ""type"": ""Point""}";49.247854989506635, -123.06542594968943
+88;Collingwood Park;Park - Field House;South corner, fieldhouse;Renfrew-Collingwood;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.03671596074696, 49.23652996300201], ""type"": ""Point""}";49.23652996300201, -123.03671596074696
+89;English Bay Beach Park;Park - Field House;Bathhouse;West End;7:00 am - Dusk;10:00 am - Dusk;Yes;;"{""coordinates"": [-123.14280496653117, 49.28615403908275], ""type"": ""Point""}";49.28615403908275, -123.14280496653117
+90;Falaise Park;Park - Field House;Community Hall;Renfrew-Collingwood;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.02940598630023, 49.25512303377638], ""type"": ""Point""}";49.25512303377638, -123.02940598630023
+91;Fraser River Park;Park - Public Washroom;West corner;Kerrisdale;Dawn to Dusk;Closed;No;;"{""coordinates"": [-123.14985600420111, 49.20739499780498], ""type"": ""Point""}";49.20739499780498, -123.14985600420111
+92;Fraserview Golf Course;Park - Public Washroom;Kerr Road @13th hole;Killarney;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.04229966821495, 49.21129535127691], ""type"": ""Point""}";49.21129535127691, -123.04229966821495
+93;Grays Park;Park - Public Washroom;Centre west by parking lot;Kensington-Cedar Cottage;Dawn to Dusk;Closed;No;;"{""coordinates"": [-123.08522025523621, 49.2409609289076], ""type"": ""Point""}";49.2409609289076, -123.08522025523621
+94;Hastings Community Park;Park - Field House;Central, field house;Hastings-Sunrise;Dawn to Dusk;Closed;No;;"{""coordinates"": [-123.03787394911473, 49.28064797026025], ""type"": ""Point""}";49.28064797026025, -123.03787394911473
+95;Jones Park;Park - Field House;North west corner, fieldhouse;Kensington-Cedar Cottage;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.0683280268142, 49.236204957989564], ""type"": ""Point""}";49.236204957989564, -123.0683280268142
+96;Locarno Park;Park - Field House;Concession at fieldhouse;West Point Grey;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.20655501267099, 49.275065991158456], ""type"": ""Point""}";49.275065991158456, -123.20655501267099
+97;McBride Park;Park - Field House;Central, field house;Kitsilano;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.18014096216841, 49.26810696563152], ""type"": ""Point""}";49.26810696563152, -123.18014096216841
+98;Moberly Park;Park - Field House;South west corner at Community Hall;Sunset;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.08735497868794, 49.2152529947934], ""type"": ""Point""}";49.2152529947934, -123.08735497868794
+99;Montgomery Park;Park - Field House;North east corner;Oakridge;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.12924098629418, 49.23182604554475], ""type"": ""Point""}";49.23182604554475, -123.12924098629418
+100;Nanaimo Park;Park - Field House;North side, fieldhouse;Victoria-Fraserview;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.05742904218603, 49.22824199783675], ""type"": ""Point""}";49.22824199783675, -123.05742904218603
+101;Oak Park;Park - Field House;East side field house;Marpole;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.12764097866088, 49.21628599415058], ""type"": ""Point""}";49.21628599415058, -123.12764097866088
+102;Oppenheimer Park;Park - Field House;North east corner;Strathcona;Tue - Sat 9:00 am - 8:00 pm;Tue - Sat 9:00 am - 5:00 pm;No;;"{""coordinates"": [-123.09382210202949, 49.28272631667144], ""type"": ""Point""}";49.28272631667144, -123.09382210202949
+103;Pandora Park;Park - Field House;South side, fieldhouse;Grandview-Woodland;9:00 am - 7:00 pm;Closed;No;;"{""coordinates"": [-123.05747804862285, 49.28227999739962], ""type"": ""Point""}";49.28227999739962, -123.05747804862285
+104;Quilchena Park;Park - Field House;North east corner, fieldhouse;Arbutus Ridge;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.14872394440481, 49.24464304772728], ""type"": ""Point""}";49.24464304772728, -123.14872394440481
+105;Riverfront Park;Park - Public Washroom;North side;Killarney;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.0518469713802, 49.20576803638567], ""type"": ""Point""}";49.20576803638567, -123.0518469713802
+106;Trafalgar Park;Park - Field House;North side, fieldhouse;Arbutus Ridge;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.16347197280247, 49.25155496544842], ""type"": ""Point""}";49.25155496544842, -123.16347197280247
+107;Victoria Park;Park - Field House;West side;Grandview-Woodland;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.06741301627554, 49.27174404161449], ""type"": ""Point""}";49.27174404161449, -123.06741301627554
+108;Winona Park;Park - Field House;Fieldhouse;Marpole;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.11294894481753, 49.21571797941276], ""type"": ""Point""}";49.21571797941276, -123.11294894481753
+109;Woodland Park;Park - Field House;Central, field house;Grandview-Woodland;Dawn to Dusk;Dawn to Dusk;No;;"{""coordinates"": [-123.07322000486613, 49.27836897097232], ""type"": ""Point""}";49.27836897097232, -123.07322000486613
+110;Britannia;Community Center;1661 Napier St;Grandview-Woodland;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.07065277917624, 49.27504267038552], ""type"": ""Point""}";49.27504267038552, -123.07065277917624
+111;Carnegie Centre;Community Center;401 Main St;Downtown;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.1001272122058, 49.28105198363986], ""type"": ""Point""}";49.28105198363986, -123.1001272122058
+112;Coal Harbour;Community Center;480 Broughton St;Downtown;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.12505292931658, 49.29029937889089], ""type"": ""Point""}";49.29029937889089, -123.12505292931658
+113;Douglas Park;Community Center;801 W 22nd Av;South Cambie;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.1224846980371, 49.25211550271443], ""type"": ""Point""}";49.25211550271443, -123.1224846980371
+114;Hastings;Community Center;3096 E Hastings St;Hastings-Sunrise;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.03930991502807, 49.28080523370132], ""type"": ""Point""}";49.28080523370132, -123.03930991502807
+115;Hillcrest;Community Center;4575 Clancy Loranger Way;Riley Park;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.10801095525642, 49.24386283540143], ""type"": ""Point""}";49.24386283540143, -123.10801095525642
+116;Kensington;Community Center;5175 Dumfries St;Kensington-Cedar Cottage;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.07466320602174, 49.237165754113256], ""type"": ""Point""}";49.237165754113256, -123.07466320602174
+117;Kerrisdale;Community Center;5851 West Boulevard;Kerrisdale;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.15709290739301, 49.23318535416131], ""type"": ""Point""}";49.23318535416131, -123.15709290739301
+118;Killarney;Community Center;6260 Killarney St;Killarney;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.04396930018117, 49.227036528643545], ""type"": ""Point""}";49.227036528643545, -123.04396930018117
+119;Ray-Cam Co-Operative Center;Community Center;920 E Hastings St;Strathcona;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.0840893336462, 49.28073616037968], ""type"": ""Point""}";49.28073616037968, -123.0840893336462
+120;Strathcona;Community Center;601 Keefer St;Strathcona;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.09154620769539, 49.27977979183258], ""type"": ""Point""}";49.27977979183258, -123.09154620769539
+121;Thunderbird;Community Center;2311 Cassiar St;Hastings-Sunrise;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.03210372093348, 49.26360783509205], ""type"": ""Point""}";49.26360783509205, -123.03210372093348
+122;Trout Lake;Community Center;3360 Victoria Drive;Kensington-Cedar Cottage;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.0655282767287, 49.25529203110348], ""type"": ""Point""}";49.25529203110348, -123.0655282767287
+123;West Point Grey;Community Center;4397 W 2nd Av;West Point Grey;as per CC operating hours;as per CC operating hours;;Maintained by Rec Center;"{""coordinates"": [-123.2045334775624, 49.271797159811925], ""type"": ""Point""}";49.271797159811925, -123.2045334775624
+124;Spanish Banks Beach Park;Park - Field House;West, fieldhouse;West Point Grey;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.22267905551811, 49.277471985052316], ""type"": ""Point""}";49.277471985052316, -123.22267905551811
+125;Jericho Beach Park;Park - Public Washroom;Service Yard - public exterior attached to service building;West Point Grey;Dawn - 11:00 pm;Dawn - 11:00 pm;Yes;;"{""coordinates"": [-123.20282013106967, 49.27442916398891], ""type"": ""Point""}";49.27442916398891, -123.20282013106967
+126;New Brighton Park;Park - Field House;North east corner, fieldhouse;Hastings-Sunrise;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.03602500739287, 49.289333968905524], ""type"": ""Point""}";49.289333968905524, -123.03602500739287
+127;Stanley Park;Park - Public Washroom;Prospect Point;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.14264883145943, 49.312411041976254], ""type"": ""Point""}";49.312411041976254, -123.14264883145943
+128;Stanley Park;Park - Field House;Ceperley Picnic Shelter;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.14868000781655, 49.29359490462253], ""type"": ""Point""}";49.29359490462253, -123.14868000781655
+129;Stanley Park;Park - Public Washroom;Train, Picnic Shelter;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.13292304169951, 49.30206900196944], ""type"": ""Point""}";49.30206900196944, -123.13292304169951
+130;Stanley Park;Park - Public Washroom;Info Booth;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.13143296597215, 49.297753013375036], ""type"": ""Point""}";49.297753013375036, -123.13143296597215
+131;Stanley Park;Park - Public Washroom;Totems;;Dawn to Dusk;Dawn to Dusk;Yes;;"{""coordinates"": [-123.12127801954024, 49.29944002245292], ""type"": ""Point""}";49.29944002245292, -123.12127801954024
+132;Robson Park;Park - Field House;South East Corner Fieldhouse;Mount Pleasant;;;;;"{""coordinates"": [-123.09133535945465, 49.25773293062128], ""type"": ""Point""}";49.25773293062128, -123.09133535945465
+133;Oak Meadows Park;Park - Public Washroom;NW Corner;South Cambie;Dawn to Dusk;Dawn to Dusk;Yes;Has Team Storage;"{""coordinates"": [-123.1269603577517, 49.239023555598024], ""type"": ""Point""}";49.239023555598024, -123.1269603577517
+134;Musqueam Park;Park - Public Washroom;4000 SW Marine Dr;Dunbar-Southlands;;;;;"{""coordinates"": [-123.18992303549685, 49.229432279280935], ""type"": ""Point""}";49.229432279280935, -123.18992303549685
+135;Vancouver Technical Secondary;Park - Public Washroom;NE of synturf field;Renfrew-Collingwood;;;;;"{""coordinates"": [-123.05008933604122, 49.26055815523328], ""type"": ""Point""}";49.26055815523328, -123.05008933604122
+136;Heather Marina;Other Facilities;Marina Building;Fairview;;;;;"{""coordinates"": [-123.11871635134744, 49.26886147584729], ""type"": ""Point""}";49.26886147584729, -123.11871635134744
+137;Coopers' Park;Park - Portland Loo;East side of baskeball court;Downtown;24 hrs;24 hrs;Yes;;"{""coordinates"": [-123.11441858743608, 49.2730422860486], ""type"": ""Point""}";49.2730422860486, -123.11441858743608
+138;Kerrisdale Park;Park - Public Washroom;Ice Rink;Shaughnessy;;;;;"{""coordinates"": [-123.15353285764634, 49.23543806889157], ""type"": ""Point""}";49.23543806889157, -123.15353285764634
+139;;SmallAPT;Powell St and Main St;Downtown;24hrs - 24hrs;24hrs - 24hrs;No;;"{""coordinates"": [-123.0998335567336, 49.28326981233583], ""type"": ""Point""}";49.28326981233583, -123.0998335567336
+140;;SmallAPT;Richards St and Davie St, Emery Barnes Park;Downtown;24hrs - 24hrs;24hrs - 24hrs;No;;"{""coordinates"": [-123.12409855430495, 49.27604879059326], ""type"": ""Point""}";49.27604879059326, -123.12409855430495
+141;;ComfortStation;Main St and E Hastings St;Downtown;8am (female) 6am (male) - Midnight;8am (female) 6am (male) - Midnight;No;;"{""coordinates"": [-123.09983455686559, 49.281101387413884], ""type"": ""Point""}";49.281101387413884, -123.09983455686559
+142;;SmallAPT;W Hastings St and Carral St - Pigeon Park;Downtown;9am - 9pm;9am - 9pm;No;;"{""coordinates"": [-123.104586555944, 49.28163278844592], ""type"": ""Point""}";49.28163278844592, -123.104586555944
+143;;LargeAPT;Bute St, Nelson Park;West End;24hrs - 24hrs;24hrs - 24hrs;Yes;;"{""coordinates"": [-123.13066155087947, 49.283372391399475], ""type"": ""Point""}";49.283372391399475, -123.13066155087947
+144;;LargeAPT;Bute at Davie;West End;24hrs - 24hrs;24hrs - 24hrs;Yes;;"{""coordinates"": [-123.13309096598627, 49.282049830178636], ""type"": ""Point""}";49.282049830178636, -123.13309096598627
+145;;LargeAPT;Robson St and Granville St;Downtown;6am - 10pm;6am - 10pm;Yes;;"{""coordinates"": [-123.12006655436043, 49.28162689042433], ""type"": ""Point""}";49.28162689042433, -123.12006655436043
