@@ -10,7 +10,7 @@ We retrieved the public Park data from the City of Vancouver Open Data Portal. W
 
 ## Report
 
-The final report can be found [https://github.com/rsokolsnyder/washrooms-in-vancouver-parks/blob/main/analysis.ipynb]
+The final report can be found in the [python notebook](washrooms_in_parks.ipynb)
 
 ## Usage
 
