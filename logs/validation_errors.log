@@ -1,0 +1,13 @@
+2025-11-26 13:20:17,015 - 
+{
+  "DATA": {
+    "DATAFRAME_CHECK": [
+      {
+        "schema": null,
+        "column": "Washrooms",
+        "check": "Target Class may be imbalanced, check source data!",
+        "error": "Column 'Washrooms' failed element-wise validator number 1: <Check <lambda>: Target Class may be imbalanced, check source data!> failure cases: Y, N, Y, N, N, N, Y, N, Y, Y, N, N, Y, N, Y, Y, N, N, Y, Y, N, Y, N, Y, Y, Y, Y, Y, N, Y, Y, N, N, Y, N, Y, Y, N, N, N, N, N, N, N, N, N, Y, N, Y, N, N, N, N, N, N, Y, Y, N, N, N, Y, Y, Y, N, N, N, N, N, N, N, N, Y, N, N, Y, N, N, N, N, Y, N, N, N, N, N, Y, N, N, Y, N, N, N, N, N, N, N, N, Y, N, N, N, Y, Y, N, N, N, N, N, N, N, N, Y, N, N, N, N, N, N, Y, N, Y, Y, N, N, N, Y, Y, Y, N, N, Y, Y, N, N, N, N, Y, N, N, N, Y, N, N, N, N, N, N, N, N, N, N, N, N, Y, N, Y, N, Y, N, Y, Y, N, N, Y, N, N, N, N, N, N, N, N, N, N, Y, N, Y, N, Y, N, Y, Y, N, Y, N, Y, Y, Y, N, N, Y, N, N, Y, N, N, Y, Y, N, N, Y, Y, Y, N, Y, N, Y, N, N, N, N, N, N, N, N, N, N, N"
+      }
+    ]
+  }
+}
