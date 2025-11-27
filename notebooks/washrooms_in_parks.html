@@ -7588,7 +7588,9 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span><span class="p">,</span> <span class="n">make_column_transformer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">cross_validate</span>
@@ -7601,6 +7603,7 @@ a.anchor-link {
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandera.pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
 </pre></div>
 </div>
 </div>
@@ -7615,8 +7618,13 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># read data</span>
-<span class="n">park</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/parks/exports/csv?lang=en&amp;timezone=America</span><span class="si">%2F</span><span class="s2">Los_Angeles&amp;use_labels=true&amp;delimiter=%3B"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">";"</span><span class="p">)</span>
-<span class="n">park</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"data/parks.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">';'</span><span class="p">)</span>
+
+<span class="c1"># Data Validation: correct file format</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="n">park</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/parks/exports/csv?lang=en&amp;timezone=America</span><span class="si">%2F</span><span class="s2">Los_Angeles&amp;use_labels=true&amp;delimiter=%3B"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">";"</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"File appears to be in the incorrect format!"</span><span class="p">)</span>
+<span class="n">park</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"../data/parks.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">';'</span><span class="p">)</span>
 <span class="n">park</span>
 </pre></div>
 </div>
@@ -7872,12 +7880,133 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f025f9fe-da7a-4c9e-be84-bdb5a70d4ac6">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c46adc74">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pandera data validation</span>
+<span class="c1"># no check for missingness threshold since the only nullable columns are dropped</span>
+<span class="c1"># so we do not care about how many nulls there are</span>
+
+<span class="c1"># set up invalid data logging</span>
+<span class="c1"># adapted from DSCI 522 Textbook</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">"../logs/validation_errors.log"</span><span class="p">,</span>
+    <span class="n">filemode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Configure valid data schema</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">DataFrameSchema</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">"ParkID"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+        <span class="s2">"Name"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span>
+        <span class="s2">"Official"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])),</span>
+        <span class="s2">"Advisories"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">])),</span>
+        <span class="s2">"SpecialFeatures"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">])),</span>
+        <span class="s2">"Facilities"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">])),</span>
+        <span class="s2">"Washrooms"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> 
+            <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">]),</span>
+                <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span>
+                    <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="p">(</span><span class="n">w</span> <span class="o">==</span> <span class="s2">"Y"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.2</span><span class="p">,</span> 
+                    <span class="n">element_wise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"Target Class may be imbalanced, check source data!"</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">),</span>
+        <span class="s2">"StreetNumber"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="s2">"StreetName"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="s2">"EWStreet"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="s2">"NSStreet"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="s2">"NeighbourhoodName"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span>
+            <span class="s2">"Arbutus-Ridge"</span><span class="p">,</span>
+            <span class="s2">"Downtown"</span><span class="p">,</span>
+            <span class="s2">"Dunbar-Southlands"</span><span class="p">,</span>
+            <span class="s2">"Fairview"</span><span class="p">,</span>
+            <span class="s2">"Grandview-Woodland"</span><span class="p">,</span>
+            <span class="s2">"Hastings-Sunrise"</span><span class="p">,</span>
+            <span class="s2">"Kensington-Cedar Cottage"</span><span class="p">,</span>
+            <span class="s2">"Kerrisdale"</span><span class="p">,</span>
+            <span class="s2">"Killarney"</span><span class="p">,</span>
+            <span class="s2">"Kitsilano"</span><span class="p">,</span>
+            <span class="s2">"Mount Pleasant"</span><span class="p">,</span>
+            <span class="s2">"South Cambie"</span><span class="p">,</span>
+            <span class="s2">"Renfrew-Collingwood"</span><span class="p">,</span>
+            <span class="s2">"Oakridge"</span><span class="p">,</span>
+            <span class="s2">"Riley Park"</span><span class="p">,</span>
+            <span class="s2">"Shaughnessy"</span><span class="p">,</span>
+            <span class="s2">"Victoria-Fraserview"</span><span class="p">,</span>
+            <span class="s2">"West End"</span><span class="p">,</span>
+            <span class="s2">"West Point Grey"</span><span class="p">,</span>
+            <span class="s2">"Marpole"</span><span class="p">,</span>
+            <span class="s2">"Strathcona"</span><span class="p">,</span>
+            <span class="s2">"Sunset"</span>
+        <span class="p">])),</span>
+        <span class="s2">"NeighbourhoodURL"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> 
+            <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="k">lambda</span> <span class="n">url</span><span class="p">:</span> <span class="n">url</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"https://vancouver.ca"</span><span class="p">)),</span>
+                <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="k">lambda</span> <span class="n">url</span><span class="p">:</span> <span class="n">url</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".aspx"</span><span class="p">))</span>
+            <span class="p">],</span>
+            <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">),</span>
+        <span class="s2">"Hectare"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)),</span>
+        <span class="s2">"GoogleMapDest"</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> 
+            <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="k">lambda</span> <span class="n">latlon</span><span class="p">:</span> <span class="n">latlon</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"49."</span><span class="p">)),</span>
+            <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(),</span> <span class="n">error</span> <span class="o">=</span> <span class="s2">"Duplicate Rows!"</span><span class="p">),</span>
+        <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="o">~</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(),</span> <span class="n">error</span> <span class="o">=</span> <span class="s2">"Empty Rows!"</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="n">drop_invalid_rows</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="c1"># Adapted from DSCI 522 Textbook</span>
+<span class="c1"># Initialize error cases DataFrame</span>
+<span class="n">error_cases</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">park</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Adapted from DSCI 522 Textbook</span>
+<span class="c1"># Validate data and handle errors</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">park</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">pa</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">SchemaErrors</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">error_cases</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">failure_cases</span>
+
+    <span class="c1"># Adapted from DSCI 522 Textbook</span>
+    <span class="c1"># Convert the error message to a JSON string</span>
+    <span class="n">error_message</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">error_message</span><span class="p">)</span>
+
+<span class="c1"># Filter out invalid rows based on the error cases</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">error_cases</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">invalid_indices</span> <span class="o">=</span> <span class="n">error_cases</span><span class="p">[</span><span class="s2">"index"</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="n">park</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">invalid_indices</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">park</span> <span class="o">=</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f025f9fe-da7a-4c9e-be84-bdb5a70d4ac6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Summary of dataframe</span>
@@ -7892,7 +8021,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7982,12 +8111,60 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5e8ff436">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">park</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 218 entries, 0 to 217
+Data columns (total 15 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   ParkID             218 non-null    int64  
+ 1   Name               218 non-null    object 
+ 2   Official           218 non-null    int64  
+ 3   Advisories         218 non-null    object 
+ 4   SpecialFeatures    218 non-null    object 
+ 5   Facilities         218 non-null    object 
+ 6   Washrooms          218 non-null    object 
+ 7   StreetNumber       218 non-null    int64  
+ 8   StreetName         218 non-null    object 
+ 9   EWStreet           216 non-null    object 
+ 10  NSStreet           213 non-null    object 
+ 11  NeighbourhoodName  218 non-null    object 
+ 12  NeighbourhoodURL   218 non-null    object 
+ 13  Hectare            218 non-null    float64
+ 14  GoogleMapDest      218 non-null    object 
+dtypes: float64(1), int64(3), object(11)
+memory usage: 25.7+ KB
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0f027c4c-d86d-4375-b25e-81ae727dcc34">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># listing features in dataframe</span>
@@ -8006,7 +8183,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize numeric features</span>
@@ -8036,7 +8213,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize categorical features</span>
@@ -8070,7 +8247,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize binary features when there is washroom</span>
@@ -8105,7 +8282,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize binary features when there is no washroom</span>
@@ -8138,7 +8315,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># preprocessor for column transformation</span>
@@ -8161,7 +8338,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># train and test data set up</span>
@@ -8182,7 +8359,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>204    Y
 203    N
@@ -8205,7 +8382,7 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Function for cv score, adapted from 571 lab 2</span>
@@ -8241,7 +8418,7 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Setup model and pipline</span>
@@ -8257,7 +8434,7 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">dummy_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -8274,7 +8451,7 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8320,7 +8497,7 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># RBF SVC model implementation</span>
@@ -8330,134 +8507,6 @@ Name: Washrooms, Length: 131, dtype: object</pre>
     <span class="s2">"svm_rbf"</span> <span class="p">:</span> <span class="n">mean_std_cross_val_scores</span><span class="p">(</span><span class="n">pipe2</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="p">})</span>
 <span class="n">svm_rbf_df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>fit_time</th>
-<th>score_time</th>
-<th>test_score</th>
-<th>train_score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>svm_rbf</th>
-<td>0.006 (+/- 0.000)</td>
-<td>0.004 (+/- 0.001)</td>
-<td>0.771 (+/- 0.051)</td>
-<td>0.807 (+/- 0.022)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=346571f0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># knn model implementation</span>
-<span class="n">knn_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">pipe3</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">knn_classifier</span><span class="p">)</span>
-<span class="n">knn_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"knn"</span> <span class="p">:</span> <span class="n">mean_std_cross_val_scores</span><span class="p">(</span><span class="n">pipe3</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="p">})</span>
-<span class="n">knn_df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>fit_time</th>
-<th>score_time</th>
-<th>test_score</th>
-<th>train_score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>knn</th>
-<td>0.006 (+/- 0.000)</td>
-<td>0.011 (+/- 0.016)</td>
-<td>0.746 (+/- 0.058)</td>
-<td>0.833 (+/- 0.019)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6c371989">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dummy_df</span><span class="p">,</span> <span class="n">svm_rbf_df</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">knn_df</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">result</span>
 </pre></div>
 </div>
 </div>
@@ -8488,6 +8537,134 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <thead>
 <tr style="text-align: right;">
 <th></th>
+<th>fit_time</th>
+<th>score_time</th>
+<th>test_score</th>
+<th>train_score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>svm_rbf</th>
+<td>0.007 (+/- 0.001)</td>
+<td>0.004 (+/- 0.001)</td>
+<td>0.771 (+/- 0.051)</td>
+<td>0.807 (+/- 0.022)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=346571f0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># knn model implementation</span>
+<span class="n">knn_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">pipe3</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">knn_classifier</span><span class="p">)</span>
+<span class="n">knn_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"knn"</span> <span class="p">:</span> <span class="n">mean_std_cross_val_scores</span><span class="p">(</span><span class="n">pipe3</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">knn_df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>fit_time</th>
+<th>score_time</th>
+<th>test_score</th>
+<th>train_score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>knn</th>
+<td>0.006 (+/- 0.001)</td>
+<td>0.023 (+/- 0.042)</td>
+<td>0.746 (+/- 0.058)</td>
+<td>0.833 (+/- 0.019)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6c371989">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dummy_df</span><span class="p">,</span> <span class="n">svm_rbf_df</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">knn_df</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
 <th>dummy</th>
 <th>svm_rbf</th>
 <th>knn</th>
@@ -8497,14 +8674,14 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <tr>
 <th>fit_time</th>
 <td>0.006 (+/- 0.001)</td>
-<td>0.006 (+/- 0.000)</td>
-<td>0.006 (+/- 0.000)</td>
+<td>0.007 (+/- 0.001)</td>
+<td>0.006 (+/- 0.001)</td>
 </tr>
 <tr>
 <th>score_time</th>
 <td>0.004 (+/- 0.000)</td>
 <td>0.004 (+/- 0.001)</td>
-<td>0.011 (+/- 0.016)</td>
+<td>0.023 (+/- 0.042)</td>
 </tr>
 <tr>
 <th>test_score</th>
@@ -8530,7 +8707,7 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -8552,9 +8729,9 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x145c7a660&gt;</pre>
+<pre>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x140ccf620&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8577,7 +8754,6 @@ Name: Washrooms, Length: 131, dtype: object</pre>
 <p>Sci-Kit Learn Documentation. Dummy Classifier. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html</a></p>
 <p>Sci-Kit Learn Documentation. KNeighborsRegressor. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html</a></p>
 <p>Sci-Kit Learn Documentation. SVC. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html</a></p>
-<p>Timbers, T. (n.d.). breast_cancer_predictor_py [Source code]. GitHub. <a href="https://github.com/ttimbers/breast_cancer_predictor_py">https://github.com/ttimbers/breast_cancer_predictor_py</a></p>
 </div>
 </div>
 </div>

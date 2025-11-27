@@ -9,3 +9,5 @@ dependencies:
   - python=3.13.9
   - jupyterlab=4.5.0
   - scikit-learn=1.7.2
+  - pandera=0.26.1
+  - deepchecks=0.3.2
