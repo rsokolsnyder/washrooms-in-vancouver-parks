@@ -1,4 +1,4 @@
-name: milestone1v2
+name: milestone1
 channels:
   - conda-forge
 dependencies:
