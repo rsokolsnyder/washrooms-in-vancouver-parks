@@ -11,7 +11,7 @@ dependencies:
   - pandera=0.27.0
   - numpy=1.26
   - setuptools=80.9
-  - anywidget=0.9.29
+  - anywidget=0.9
   - pip=25.3
   - pip:
     - deepchecks==0.19.1
