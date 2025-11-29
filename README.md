@@ -13,29 +13,10 @@ We retrieved the public Park data from the City of Vancouver Open Data Portal. W
 The final report can be found in the [python notebook](notebooks/washrooms_in_parks.ipynb)
 
 ## Usage
-
-If running this project for the first time, run the following code in a terminal window from the root directory of this repository
-First time running the project, run the following from the root of this repository:
-
-```
-conda-lock install --n washrooms-in-vancouver-parks conda-lock.yml
-```
-
-Then, to run the analysis, open an instance of Jupyter Lab from the root of this repository using the command:
-
-```
-jupyter lab 
-```
-
-Next, open notebooks/washrooms_in_parks.ipynb in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:washrooms-in-vancouver-parks]".
-
-Finally, under the "Kernel" menu, select "Restart Kernel and Run All Cells".
-
-### Docker Approach
 - If you are trying to run this project with docker, please follow the instruction below.
-#### Setup
+### Setup
 1. Clone this repositry
-#### Running the Analysis
+### Running the Analysis
 1. Navigate to the root directory of the project.
 2. run the command below on terminal
 ```
