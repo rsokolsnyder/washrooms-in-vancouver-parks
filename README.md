@@ -13,9 +13,13 @@ We retrieved the public Park data from the City of Vancouver Open Data Portal. W
 The final report can be found in the [python notebook](notebooks/washrooms_in_parks.ipynb)
 
 ## Usage
+
 - If you are trying to run this project with docker, please follow the instruction below.
+
 ### Setup
-1. Clone this repositry
+
+1. Clone this repository
+
 ### Running the Analysis
 1. Navigate to the root directory of the project.
 2. run the command below on terminal
