@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/minimal-notebook
+FROM quay.io/jupyter/minimal-notebook:python-3.12
 
 COPY conda-linux-64.lock /tmp/conda-linux-64.lock
 
