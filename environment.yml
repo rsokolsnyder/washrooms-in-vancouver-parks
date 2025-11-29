@@ -14,5 +14,4 @@ dependencies:
   - setuptools<81
   - ipywidgets
   - anywidget
-  - pip:
-    - deepchecks==0.19.1
+  - pip
