@@ -13,3 +13,5 @@ dependencies:
   - setuptools=80.9
   - anywidget=0.9
   - pip=25.3
+  - pip:
+    - deepchecks==0.19.1
