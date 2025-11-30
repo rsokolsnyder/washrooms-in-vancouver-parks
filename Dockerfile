@@ -7,4 +7,5 @@ RUN mamba install --quiet --file /tmp/conda-linux-64.lock \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}"
 
-RUN pip install deepchecks==0.19.1
+RUN pip install deepchecks==0.19.1 \
+    && pip install pandera==0.27.0
