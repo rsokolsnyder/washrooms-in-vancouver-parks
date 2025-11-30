@@ -3,16 +3,15 @@ channels:
   - conda-forge
 dependencies:
   - matplotlib=3.10.8
-  - altair=6.0.0
   - pandas=2.2
   - conda-lock=3.0.4
   - python=3.12
   - jupyterlab=4.5.0
   - scikit-learn=1.7.2
-  - pandera=0.26.1
+  - pandera=0.27.0
   - numpy=1.26
-  - setuptools<81
-  - ipywidgets
-  - anywidget
+  - setuptools=80.9
+  - anywidget=0.9
+  - pip=25.3
   - pip:
     - deepchecks==0.19.1
