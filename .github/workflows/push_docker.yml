@@ -48,7 +48,7 @@ jobs:
         if: success()
         run: |
           sed -i "s|image: yauchungki1305/washrooms-in-vancouver-parks:.*|image: yauchungki1305/washrooms-in-vancouver-parks:${{ steps.meta.outputs.version }}|" docker-compose.yml
-
+      
       - name: Commit and push updated docker-compose.yml
         if: success()
         run: |
