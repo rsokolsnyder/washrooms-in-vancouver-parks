@@ -8,20 +8,26 @@ import json
 import logging
 import numpy as np
 import pandas as pd
-import pandera as pa
+import pandera.pandas as pa
 import pickle
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.impute import SimpleImputer
+from sklearn.compose import make_column_transformer
+from deepchecks.tabular import Dataset
+from deepchecks.tabular.checks import FeatureLabelCorrelation
+from deepchecks.tabular.checks.data_integrity import FeatureFeatureCorrelation
 
 
 @click.command()
 @click.option('--raw-data', type=str, help="Path to raw data")
 @click.option('--logs-to', type=str, help="Path to directory where validation logs will be written to")
 @click.option('--data-to', type=str, help="Path to directory where processed data will be written to")
+@click.option('--viz-to', type=str, help="Path to directory where visualizations will be written to")
 @click.option('--preprocessor-to', type=str, help="Path to directory where the preprocessor object will be written to")
 @click.option('--seed', type=int, help="Random seed", default=123)
-def main(raw_data, logs_to, data_to, preprocessor_to, seed):
+def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     '''This script splits the raw data into train and test sets, 
     and then preprocesses the data to be used in exploratory data analysis.
     It also saves the preprocessor to be used in the model training script.'''
@@ -125,13 +131,13 @@ def main(raw_data, logs_to, data_to, preprocessor_to, seed):
     else:
         park = data
 
-    park.to_csv(os.path.join(data_to, "parks_pandera_validated.csv"))
+    park.to_csv(os.path.join(data_to, "pandera_validated_parks.csv"))
     
     # train and test data set up
     train_df, test_df = train_test_split(park, test_size=0.3, random_state=123)
 
-    train_df.to_csv(os.path.join(data_to, "parks_train_raw.csv"), index=False)
-    test_df.to_csv(os.path.join(data_to, "parks_test_raw.csv"), index=False)
+    train_df.to_csv(os.path.join(data_to, "parks_train.csv"), index=False)
+    test_df.to_csv(os.path.join(data_to, "parks_test.csv"), index=False)
 
     # Data Validation Pandera check of target distribution
     training_schema = pa.DataFrameSchema({
@@ -151,7 +157,7 @@ def main(raw_data, logs_to, data_to, preprocessor_to, seed):
 
     train_df = training_schema.validate(train_df, lazy=True)
 
-    train_df.to_csv(os.path.join(data_to, "parks_train_target_validated.csv"), index=False)
+    train_df.to_csv(os.path.join(data_to, "parks_train.csv"), index=False)
 
     # categorizing features in parks
     numeric_features = ['Hectare']
@@ -164,29 +170,79 @@ def main(raw_data, logs_to, data_to, preprocessor_to, seed):
     # No anomalous correlations between target/response variable and features/explanatory variables
     # Using Deepchecks Feature Label Correlation check
     # Prepare dataset that matches Deepcheck syntax
-    dc_categorical_features = ['NeighbourhoodName', 'Official', 'Advisories', 'SpecialFeatures', 'Facilities']
+    dc_categorical_features = categorical_features + binary_features
     dc_train_df = train_df.drop(columns = drop_features)
-    dc_train_df.to_csv(os.path.join(data_to, "parks_train_for_deepchecks.csv"))
+    dc_train_df.to_csv(os.path.join(data_to, "deepchecks_parks_train.csv"))
 
     # Checking procedure and result
     fl_check_ds = Dataset(dc_train_df, label=target, cat_features=dc_categorical_features)
     my_check = FeatureLabelCorrelation()
-    feature_label = my_check.run(dataset=fl_check_ds)
-    feature_la
+    feature_label_result = my_check.run(dataset=fl_check_ds)
+    
+    filename = os.path.join(viz_to, "feature_label_correlation.html")
+    if os.path.exists(filename):
+        os.remove(filename)
 
-    cancer_preprocessor = make_column_transformer(
-        (StandardScaler(), make_column_selector(dtype_include='number')),
-        remainder='passthrough',
-        verbose_feature_names_out=False
+    feature_label_result.save_as_html(
+        filename,
+        as_widget=False
     )
-    pickle.dump(cancer_preprocessor, open(os.path.join(preprocessor_to, "cancer_preprocessor.pickle"), "wb"))
 
-    cancer_preprocessor.fit(cancer_train)
-    scaled_cancer_train = cancer_preprocessor.transform(cancer_train)
-    scaled_cancer_test = cancer_preprocessor.transform(cancer_test)
+    # No anomalous correlations between features/explanatory variables
+    # Using Deepchecks Feature Feature Correlation check
 
-    scaled_cancer_train.to_csv(os.path.join(data_to, "scaled_cancer_train.csv"), index=False)
-    scaled_cancer_test.to_csv(os.path.join(data_to, "scaled_cancer_test.csv"), index=False)
+    # Checking procedure and result
+    ff_check_ds = Dataset(dc_train_df, cat_features=dc_categorical_features)
+    check = FeatureFeatureCorrelation()
+    check.add_condition_max_number_of_pairs_above_threshold(0.7, 3) # add self-defined threshold condition
+    feature_feature_result = check.run(ff_check_ds)
+    
+    filename = os.path.join(viz_to, "feature_feature_correlation.html")
+    if os.path.exists(filename):
+        os.remove(filename)
+
+    feature_feature_result.save_as_html(
+        filename,
+        as_widget=False
+    )
+
+    # preprocessor for column transformation
+    categorical_transformer = make_pipeline(
+        SimpleImputer(strategy="constant", fill_value="missing"), OneHotEncoder(handle_unknown="ignore", sparse_output=False)
+    )
+    parks_preprocessor = make_column_transformer(
+        (StandardScaler(), numeric_features),
+        (OneHotEncoder(), binary_features),
+        (categorical_transformer, categorical_features),
+        ("drop", drop_features)
+    )
+
+    pickle.dump(parks_preprocessor, open(os.path.join(preprocessor_to, "parks_preprocessor.pickle"), "wb"))
+
+    parks_preprocessor.fit(train_df)
+    scaled_parks_train = pd.DataFrame(
+        data=parks_preprocessor.transform(train_df),
+        columns=parks_preprocessor.get_feature_names_out()
+    )
+    scaled_parks_test = pd.DataFrame(
+        data=parks_preprocessor.transform(test_df),
+        columns=parks_preprocessor.get_feature_names_out()
+    )
+
+    scaled_parks_train.to_csv(os.path.join(data_to, "scaled_parks_train.csv"), index=False)
+    scaled_parks_test.to_csv(os.path.join(data_to, "scaled_parks_test.csv"), index=False)
+
+    X_train = train_df.drop(columns=[target])
+    y_train = train_df[target]
+    X_test = test_df.drop(columns=[target])
+    y_test = test_df[target]
+
+    X_train.to_csv(os.path.join(data_to, "parks_X_train.csv"), index=False)
+    y_train.to_csv(os.path.join(data_to, "parks_y_train.csv"), index=False)
+    X_test.to_csv(os.path.join(data_to, "parks_X_test.csv"), index=False)
+    y_test.to_csv(os.path.join(data_to, "parks_X_test.csv"), index=False)
+
+    train_df
 
 if __name__ == '__main__':
     main()
