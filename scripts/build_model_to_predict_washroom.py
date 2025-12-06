@@ -89,7 +89,7 @@ def main(scaled_train_data, scaled_test_data, y_data, results_to, pipeline_to, v
         pickle.dump(pipe_dummy, f)
 
     # RBF SVC model implementation
-    svm_rbf_classifier = SVC(kernel='rbf', C=1.0, gamma='scale') 
+    svm_rbf_classifier = SVC(kernel='rbf', C=1.0, gamma='scale')
     pipe_svm_rbf = make_pipeline(svm_rbf_classifier)
     svm_rbf_df = pd.DataFrame({
         "svm_rbf" : mean_std_cross_val_scores(pipe_svm_rbf, X_train, y_train, cv=5, return_train_score=True)
