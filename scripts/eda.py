@@ -11,6 +11,8 @@ import os
 @click.option('--train', type=str, help="Path to processed training data")
 @click.option('--plot_to', type=str, help="Path to save plot")
 def main(train, plot_to):
+    '''Plots data analysis in the processed training data
+        by class, display and save them'''
     train_df = pd.read_csv(train)
     train_df.describe().to_csv(f"{plot_to}/summary_stats.csv")
     # print(f"{plot_to}/summary_stats.csv")
