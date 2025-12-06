@@ -228,8 +228,8 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
         columns=parks_preprocessor.get_feature_names_out()
     )
 
-    scaled_parks_train.to_csv(os.path.join(data_to, "scaled_parks_train.csv"), index=False)
-    scaled_parks_test.to_csv(os.path.join(data_to, "scaled_parks_test.csv"), index=False)
+    scaled_parks_train.to_csv(os.path.join(data_to, "scaled_parks_X_train.csv"), index=False)
+    scaled_parks_test.to_csv(os.path.join(data_to, "scaled_parks_X_test.csv"), index=False)
 
 if __name__ == '__main__':
     main()
