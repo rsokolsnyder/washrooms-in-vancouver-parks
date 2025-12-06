@@ -5,6 +5,7 @@
 import pandas as pd
 import click
 import matplotlib.pyplot as plt
+import os
 
 @click.command()
 @click.option('--train', type=str, help="Path to processed training data")
@@ -20,7 +21,7 @@ def main(train, plot_to):
     # for col in numeric_features:
     train_df.groupby(target)[numeric_features].plot.hist(bins=50, alpha=0.5, legend=True)
     plt.xlabel(numeric_features);
-    plt.savefig(f"../data/{numeric_features}_feature.png", dpi=300, bbox_inches="tight", transparent=False)
+    plt.savefig(f"{plot_to}/{numeric_features}_feature.png", dpi=300, bbox_inches="tight", transparent=False)
 
     # Categorical feature
     col = 'NeighbourhoodName'
@@ -30,7 +31,7 @@ def main(train, plot_to):
     plt.title(col);
     plt.legend(title=col, bbox_to_anchor=(1.05, 1), loc='upper left');
     plt.xlabel(col);
-    plt.savefig("../data/neightbourhood.png", dpi=300, bbox_inches="tight", transparent=False)
+    plt.savefig(f"{plot_to}/neightbourhood.png", dpi=300, bbox_inches="tight", transparent=False)
 
 
     binary_features = ['Official', 'Advisories', 'SpecialFeatures', 'Facilities']
@@ -44,7 +45,7 @@ def main(train, plot_to):
     washroom_df_count.plot.bar()
     plt.title("Count of Binary Features when Washrooms are Present")
     plt.ylabel("Count")
-    plt.savefig("../data/binary_features_washroom.png", dpi=300, bbox_inches="tight", transparent=False)
+    plt.savefig(f"{plot_to}/binary_features_washroom.png", dpi=300, bbox_inches="tight", transparent=False)
 
     # Visualize binary features when there is no washroom
     no_washroom_df = binary_df[binary_df[target] == "N"]
@@ -53,7 +54,7 @@ def main(train, plot_to):
     no_washroom_df_count.plot.bar()
     plt.title("Count of Binary Features when Washrooms are Absent")
     plt.ylabel("Count")
-    plt.savefig("../data/binary_features_nowashroom.png", dpi=300, bbox_inches="tight", transparent=False)
+    plt.savefig(f"{plot_to}/binary_features_nowashroom.png", dpi=300, bbox_inches="tight", transparent=False)
 
     
 if __name__ == '__main__':
