@@ -14,5 +14,6 @@ dependencies:
   - anywidget=0.9
   - pip=25.3
   - click=8.3.1
+  - quarto=1.8.26
   - pip:
     - deepchecks==0.19.1
