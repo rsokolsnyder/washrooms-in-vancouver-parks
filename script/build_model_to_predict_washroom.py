@@ -50,66 +50,78 @@ def mean_std_cross_val_scores(model, X_train, y_train, **kwargs):
 
 
 @click.command()
-
+@click.option('--scaled_train_data', type=str, help="Path to scaled train data")
+@click.option('--scaled_test_data', type=str, help="Path to scaled test data")
+@click.option('--data_to', type=str, help="Path to directory where processed data will be written to")
+@click.option('--viz_to', type=str, help="Path to directory where visualizations will be written to")
+@click.option("--filename", default="svm_confusion_matrix.png", help="Filename for the plot")
+@click.option('--model_to', type=str, help="Path to directory where the model object will be written to")
 @click.option('--seed', type=int, help="Random seed", default=123)
-def main(scaled_test_data, columns_to_drop, pipeline_from, results_to, seed):
+def main(scaled_train_data, scaled_test_data, viz_to, results_to, filename, model_to, seed):
     '''Evaluates the breast cancer classifier on the test data 
     and saves the evaluation results.'''
     np.random.seed(seed)
     set_config(transform_output="pandas")
 
-    # Train Test Split
+    # Read Scaled Train Test Data and Split to X, y
+    target = "Washrooms"
+    
+    train_df = pd.read_csv("../data/processed/scaled_parks_train.csv")
+    test_df = pd.read_csv("../data/processed/scaled_parks_test.csv")
+    
     X_train = train_df.drop(columns=[target])
     y_train = train_df[target]
     X_test = test_df.drop(columns=[target])
     y_test = test_df[target]
 
-    # preprocessor for column transformation
-    categorical_transformer = make_pipeline(
-        SimpleImputer(strategy="constant", fill_value="missing"), OneHotEncoder(handle_unknown="ignore", sparse_output=False)
-    )
-    preprocessor = make_column_transformer(
-        (StandardScaler(), numeric_features),
-        (OneHotEncoder(), binary_features),
-        (categorical_transformer, categorical_features),
-        ("drop", drop_features)
-    )
-
-    # Setup model and pipline
+    # Dummy model implementation
     model = DummyClassifier(random_state=123)
-    pipe = make_pipeline(preprocessor, model)
+    pipe_dummy = make_pipeline(preprocessor, model)
 
     dummy_df = pd.DataFrame({
-        "dummy" : mean_std_cross_val_scores(pipe, X_train, y_train, cv=5, return_train_score=True)
+        "dummy" : mean_std_cross_val_scores(pipe_dummy, X_train, y_train, cv=5, return_train_score=True)
     })
     dummy_df.transpose()
+    dummy_df.to_csv(os.path.join(data_to, "dummy_result.csv"), index=False)
+    with open("pipe_dummy_untrain.pickle", 'wb') as f:
+        pickle.dump(pipe_dummy, f)
 
     # RBF SVC model implementation
     svm_rbf_classifier = SVC(kernel='rbf', C=1.0, gamma='scale') 
-    pipe2 = make_pipeline(preprocessor, svm_rbf_classifier)
+    pipe_svm_rbf = make_pipeline(preprocessor, svm_rbf_classifier)
     svm_rbf_df = pd.DataFrame({
-        "svm_rbf" : mean_std_cross_val_scores(pipe2, X_train, y_train, cv=5, return_train_score=True)
+        "svm_rbf" : mean_std_cross_val_scores(pipe_svm, X_train, y_train, cv=5, return_train_score=True)
     })
     svm_rbf_df.transpose()
+    svm_rbf_df.to_csv(os.path.join(data_to, "svm_rbf_result.csv"), index=False)
+    with open("pipe_svm_rbf_untrain.pickle", 'wb') as f:
+        pickle.dump(pipe_svm_rbf, f)
 
     # knn model implementation
     knn_classifier = KNeighborsClassifier(n_neighbors=5)
-    pipe3 = make_pipeline(preprocessor, knn_classifier)
+    pipe_knn = make_pipeline(preprocessor, knn_classifier)
     knn_df = pd.DataFrame({
-        "knn" : mean_std_cross_val_scores(pipe3, X_train, y_train, cv=5, return_train_score=True)
+        "knn" : mean_std_cross_val_scores(pipe_knn, X_train, y_train, cv=5, return_train_score=True)
     })
     knn_df.transpose()
+    knn_df.to_csv(os.path.join(data_to, "knn_result.csv"), index=False)
+    with open("pipe_knn_untrain.pickle", 'wb') as f:
+        pickle.dump(pipe_knn, f)
 
-    # merge model results together
+    # Merge model Cross Validate results together
     result = pd.merge(dummy_df, svm_rbf_df, left_index=True, right_index=True)
     result = pd.merge(result, knn_df, left_index=True, right_index=True)
     result
+    result.to_csv(os.path.join(data_to, "combined_result.csv"), index=False)
 
-    # Create Contingency Table
-    pipe2.fit(X_train, y_train)
+    # Fit model
+    pipe_svm_rbf_fit = pipe_svm_rbf.fit(X_train, y_train)
+    with open("pipe_svm_rbf_trained.pickle", 'wb') as f:
+        pickle.dump(pipe_svm_rbf_fit, f)
 
+    # Create Contingency Table Plot
     cm = ConfusionMatrixDisplay.from_estimator(
-        pipe2,
+        pipe_svm_rbf_fit,
         X_test,
         y_test,
         values_format="d"
