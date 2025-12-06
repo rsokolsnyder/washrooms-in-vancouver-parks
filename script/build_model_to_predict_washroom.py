@@ -50,12 +50,11 @@ def mean_std_cross_val_scores(model, X_train, y_train, **kwargs):
 
 
 @click.command()
-@click.option('--scaled_train_data', type=str, help="Path to scaled train data")
-@click.option('--scaled_test_data', type=str, help="Path to scaled test data")
-@click.option('--data_to', type=str, help="Path to directory where processed data will be written to")
-@click.option('--viz_to', type=str, help="Path to directory where visualizations will be written to")
-@click.option("--filename", default="svm_confusion_matrix.png", help="Filename for the plot")
-@click.option('--model_to', type=str, help="Path to directory where the model object will be written to")
+@click.option('--scaled-train-data', type=str, help="Path to scaled train data")
+@click.option('--scaled-test-data', type=str, help="Path to scaled test data")
+@click.option('--data-to', type=str, help="Path to directory where processed data will be written to")
+@click.option('--viz-to', type=str, help="Path to directory where visualizations will be written to")
+@click.option('--model-to', type=str, help="Path to directory where the model object will be written to")
 @click.option('--seed', type=int, help="Random seed", default=123)
 def main(scaled_train_data, scaled_test_data, viz_to, results_to, filename, model_to, seed):
     '''Evaluates the breast cancer classifier on the test data 
@@ -81,8 +80,7 @@ def main(scaled_train_data, scaled_test_data, viz_to, results_to, filename, mode
     dummy_df = pd.DataFrame({
         "dummy" : mean_std_cross_val_scores(pipe_dummy, X_train, y_train, cv=5, return_train_score=True)
     })
-    dummy_df.transpose()
-    dummy_df.to_csv(os.path.join(data_to, "dummy_result.csv"), index=False)
+    dummy_df.transpose().to_csv(os.path.join(data_to, "dummy_result.csv"), index=False)
     with open("pipe_dummy_untrain.pickle", 'wb') as f:
         pickle.dump(pipe_dummy, f)
 
@@ -92,8 +90,7 @@ def main(scaled_train_data, scaled_test_data, viz_to, results_to, filename, mode
     svm_rbf_df = pd.DataFrame({
         "svm_rbf" : mean_std_cross_val_scores(pipe_svm, X_train, y_train, cv=5, return_train_score=True)
     })
-    svm_rbf_df.transpose()
-    svm_rbf_df.to_csv(os.path.join(data_to, "svm_rbf_result.csv"), index=False)
+    svm_rbf_df.transpose().to_csv(os.path.join(data_to, "svm_rbf_result.csv"), index=False)
     with open("pipe_svm_rbf_untrain.pickle", 'wb') as f:
         pickle.dump(pipe_svm_rbf, f)
 
@@ -103,15 +100,13 @@ def main(scaled_train_data, scaled_test_data, viz_to, results_to, filename, mode
     knn_df = pd.DataFrame({
         "knn" : mean_std_cross_val_scores(pipe_knn, X_train, y_train, cv=5, return_train_score=True)
     })
-    knn_df.transpose()
-    knn_df.to_csv(os.path.join(data_to, "knn_result.csv"), index=False)
+    knn_df.transpose().to_csv(os.path.join(data_to, "knn_result.csv"), index=False)
     with open("pipe_knn_untrain.pickle", 'wb') as f:
         pickle.dump(pipe_knn, f)
 
     # Merge model Cross Validate results together
     result = pd.merge(dummy_df, svm_rbf_df, left_index=True, right_index=True)
     result = pd.merge(result, knn_df, left_index=True, right_index=True)
-    result
     result.to_csv(os.path.join(data_to, "combined_result.csv"), index=False)
 
     # Fit model
@@ -126,8 +121,7 @@ def main(scaled_train_data, scaled_test_data, viz_to, results_to, filename, mode
         y_test,
         values_format="d"
     )
-    cm
-
+    cm.save(os.path.join(viz_to, "svm_confusion_matrix.png"), scale_factor=2.0)
 
 
 if __name__ == '__main__':
