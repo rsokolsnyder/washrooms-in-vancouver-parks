@@ -83,7 +83,7 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
     })
     
     # Write out result and pickle model
-    dummy_df.transpose().to_csv(os.path.join(results_to, "dummy_result.csv"), index=False)
+    dummy_df.transpose().to_csv(os.path.join(results_to, "dummy_result.csv"), index=True)
     with open(os.path.join(pipeline_to, "pipe_dummy_untrain.pickle"), 'wb') as f:
         pickle.dump(pipe_dummy, f)
 
@@ -95,7 +95,7 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
     })
 
     # Write out result and pickle model
-    svm_rbf_df.transpose().to_csv(os.path.join(results_to, "svm_rbf_result.csv"), index=False)
+    svm_rbf_df.transpose().to_csv(os.path.join(results_to, "svm_rbf_result.csv"), index=True)
     with open(os.path.join(pipeline_to, "pipe_svm_rbf_untrain.pickle"), 'wb') as f:
         pickle.dump(pipe_svm_rbf, f)
 
@@ -107,33 +107,19 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
     })
 
     # Write out result and pickle model
-    knn_df.transpose().to_csv(os.path.join(results_to, "knn_result.csv"), index=False)
+    knn_df.transpose().to_csv(os.path.join(results_to, "knn_result.csv"), index=True)
     with open(os.path.join(pipeline_to, "pipe_knn_untrain.pickle"), 'wb') as f:
         pickle.dump(pipe_knn, f)
 
     # Merge model Cross Validate results together
     result = pd.merge(dummy_df, svm_rbf_df, left_index=True, right_index=True)
     result = pd.merge(result, knn_df, left_index=True, right_index=True)
-    result.to_csv(os.path.join(results_to, "combined_result.csv"))
+    result.to_csv(os.path.join(results_to, "combined_result.csv"), index=True)
 
     # Fit model
     pipe_svm_rbf_fit = pipe_svm_rbf.fit(X_train, y_train)
     with open(os.path.join(pipeline_to, "pipe_svm_rbf_trained.pickle"), 'wb') as f:
         pickle.dump(pipe_svm_rbf_fit, f)
-
-    # Create Contingency Table Plot
-    # cm = ConfusionMatrixDisplay.from_estimator(
-    #     pipe_svm_rbf_fit,
-    #     X_train,
-    #     y_train,
-    #     #X_test,
-    #     #y_test,
-    #     values_format="d"
-    # )
-    # cm.plot()
-    
-    # plt.savefig(os.path.join(viz_to, "svm_confusion_matrix.png"), dpi=200)
-    # plt.close()
 
 
 if __name__ == '__main__':
