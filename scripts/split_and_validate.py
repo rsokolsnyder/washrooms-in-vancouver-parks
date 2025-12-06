@@ -29,8 +29,7 @@ from deepchecks.tabular.checks.data_integrity import FeatureFeatureCorrelation
 @click.option('--seed', type=int, help="Random seed", default=123)
 def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     '''This script splits the raw data into train and test sets, 
-    and then preprocesses the data to be used in exploratory data analysis.
-    It also saves the preprocessor to be used in the model training script.'''
+    performs data validation, and builds the preprocessor.'''
     np.random.seed(seed)
 
     park = pd.read_csv(raw_data, sep=';')
