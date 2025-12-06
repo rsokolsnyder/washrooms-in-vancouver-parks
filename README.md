@@ -45,6 +45,17 @@ docker compose up
 docker compose rm
 
 ```
+## Running with Scripts
+
+```
+python scripts/split_and_validate.py \
+    --raw-data=data/raw/parks.csv \
+    --logs-to=logs \
+    --data-to=data/processed \
+    --viz-to=results/figures \
+    --preprocessor-to=results/models \
+    --seed=123
+```
 
 ## Dependencies
 
