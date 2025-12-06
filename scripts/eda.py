@@ -8,15 +8,15 @@ import matplotlib.pyplot as plt
 import os
 
 @click.command()
-@click.option('--train', type=str, help="Path to processed training data")
-@click.option('--plot_to', type=str, help="Path to save plot")
-def main(train, plot_to):
+@click.option('--training-data', type=str, help="Path to processed training data")
+@click.option('--plot-to', type=str, help="Path to save plot")
+@click.option('--tables-to', type=str, help="Path to save plot")
+def main(training_data, tables_to, plot_to):
     '''Plots data analysis in the processed training data
         by class, display and save them'''
-    train_df = pd.read_csv(train)
-    train_df.describe().to_csv(f"{plot_to}/summary_stats.csv")
-    # print(f"{plot_to}/summary_stats.csv")
-    # pd.DataFrame(train_df.info()).to_csv(f"{plot_to}/column_info.csv")
+    train_df = pd.read_csv(training_data)
+    train_df.describe().to_csv(os.path.join(tables_to, "eda_summary_stats.csv"), index=False)
+
     # Numeric feature
     numeric_features = 'Hectare'
     target = "Washrooms"
