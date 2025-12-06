@@ -33,7 +33,7 @@ def main(training_data, tables_to, plot_to):
     plt.title(col);
     plt.legend(title=col, bbox_to_anchor=(1.05, 1), loc='upper left');
     plt.xlabel(col);
-    plt.savefig(os.path.join(plot_to, "neightbourhood.png"), dpi=300, bbox_inches="tight", transparent=False)
+    plt.savefig(os.path.join(plot_to, "neighbourhood.png"), dpi=300, bbox_inches="tight", transparent=False)
 
 
     binary_features = ['Official', 'Advisories', 'SpecialFeatures', 'Facilities']
