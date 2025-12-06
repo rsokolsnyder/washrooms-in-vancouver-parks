@@ -48,12 +48,30 @@ docker compose rm
 ## Running with Scripts
 
 ```
+python scripts/download_data.py \
+    --url="https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/parks/exports/csv?lang=en&timezone=America%2FLos_Angeles&use_labels=true&delimiter=%3B" \
+    --write_to=data/raw
+
 python scripts/split_and_validate.py \
     --raw-data=data/raw/parks.csv \
     --logs-to=logs \
     --data-to=data/processed \
     --viz-to=results/figures \
     --preprocessor-to=results/models \
+    --seed=123
+
+python scripts/eda.py \
+    --training-data=data/processed/parks_train.csv \
+    --plot-to=results/figures \
+    --tables-to=results/tables
+
+python scripts/build_model_to_predict_washroom.py \
+    --training-data=data/processed/parks_train.csv \
+    --test-data=data/processed/parks_test.csv \
+    --preprocessor=results/models/parks_preprocessor.pickle \
+    --results-to=results/tables \
+    --models-to=results/models \
+    --viz-to=results/figures \
     --seed=123
 ```
 
