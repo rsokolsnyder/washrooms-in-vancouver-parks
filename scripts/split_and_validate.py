@@ -232,17 +232,5 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     scaled_parks_train.to_csv(os.path.join(data_to, "scaled_parks_train.csv"), index=False)
     scaled_parks_test.to_csv(os.path.join(data_to, "scaled_parks_test.csv"), index=False)
 
-    X_train = train_df.drop(columns=[target])
-    y_train = train_df[target]
-    X_test = test_df.drop(columns=[target])
-    y_test = test_df[target]
-
-    X_train.to_csv(os.path.join(data_to, "parks_X_train.csv"), index=False)
-    y_train.to_csv(os.path.join(data_to, "parks_y_train.csv"), index=False)
-    X_test.to_csv(os.path.join(data_to, "parks_X_test.csv"), index=False)
-    y_test.to_csv(os.path.join(data_to, "parks_X_test.csv"), index=False)
-
-    train_df
-
 if __name__ == '__main__':
     main()
