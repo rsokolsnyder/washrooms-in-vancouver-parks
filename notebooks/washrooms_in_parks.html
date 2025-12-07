@@ -56,7 +56,7 @@ div.csl-indent {
 <link href="washrooms_in_parks_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="washrooms_in_parks_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="washrooms_in_parks_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="washrooms_in_parks_files/libs/bootstrap/bootstrap-5276c7f203ce44851e92bdb890e5e1f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="washrooms_in_parks_files/libs/bootstrap/bootstrap-ae47c7fac82098fde1cdefc39300e1f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -68,10 +68,14 @@ div.csl-indent {
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul class="collapse">
+  <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
+  </ul></li>
   <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -110,29 +114,29 @@ div.csl-indent {
 </header>
 
 
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level1">
+<h1>Summary</h1>
 <p>We retrieved the public Park data from the City of Vancouver Open Data Portal. We aim to construct a classification model using the adequate algorithm to help us evaluate the factors that influenced the construction of washroom which is one of the important amenities in public parks. We used two models, KNN and SVM RBVF, to test our data.</p>
 <p>The cross-validation result shows that SVM RBF provides a small but consistent improvement over the baseline, while KNN overfits and fails to generalize. The dataset may require richer features or alternative models to achieve stronger predictive performance on washroom availability.</p>
 </section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p>The Vancouver parks dataset <span class="citation" data-cites="sourcedata">(<a href="#ref-sourcedata" role="doc-biblioref">Vancouver 2025</a>)</span> offers a comprehensive view of the city’s green spaces, capturing details from park names and neighbourhoods to special features and facilities. The Washrooms column is particularly valuable, as it reveals which parks provide public washrooms and which do not. By linking this information to neighbourhoods and park sizes, the dataset becomes a powerful tool for assessing accessibility and identifying gaps in essential amenities across Vancouver’s park system.</p>
 <p>By treating washroom presence as a target variable, we wonder if we can use machine learning algorithm to help us predict where facilities are most needed, identify underserved neighbourhoods, and optimize future installations. Using features such as park size, amenities, and neighbourhood context, ML models can uncover hidden patterns in service distribution and guide equitable infrastructure planning.</p>
 </section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data">Data</h3>
+<section id="methodology" class="level1">
+<h1>Methodology</h1>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The data set that was used in this project is from City of Vancouver Open Data Portal <span class="citation" data-cites="sourcedata">(<a href="#ref-sourcedata" role="doc-biblioref">Vancouver 2025</a>)</span>. There are over 220 parks and 40 major facilities in the city of Vancouver maintained by the Vancouver Board of Parks and Recreation. In the data set, it has covered 218 park information regarding facilities available to the parks, their locations, and sizes.</p>
 </section>
-<section id="analysis" class="level3">
-<h3 class="anchored" data-anchor-id="analysis">Analysis</h3>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
 <p>We compared the performance of a k-nearest neighbors (k-nn) algorithm and a Support Vector Machine with Radial Basis Function (SVM RBF) algorithm to build a binary classification model to predict whether a park has washrooms or not. We included neighbourhood name, park size (hectare), whether the park is official, whether there are any advisories, whether there are additional facilities and whether the park has special features to fit the model. Data was split with 70% of the original dataset in the training set and the remaining 30% in the test set. We conducted 5-fold cross-validation to compare the models with a baseline. All variables preprocessed just before model fitting to ensure reliability. The Python programming language <span class="citation" data-cites="Python">(<a href="#ref-Python" role="doc-biblioref">Van Rossum and Drake 2009</a>)</span> and following scikit-learn models were used to perform this analysis: DummyClassifier <span class="citation" data-cites="dummy">(<a href="#ref-dummy" role="doc-biblioref"><em>DummyClassifier: Sci-Kit Learn Documentation</em>, n.d.</a>)</span>, K-Neighbors Classifier <span class="citation" data-cites="KNN">(<a href="#ref-KNN" role="doc-biblioref"><em>KNeighborsClassifier: Sci-Kit Learn Documentation</em>, n.d.</a>)</span>, SVM RBF Classifier <span class="citation" data-cites="SVM">(<a href="#ref-SVM" role="doc-biblioref"><em>SVC: Sci-Kit Learn Documentation</em>, n.d.</a>)</span>. Inspiration for this report and methodologies came from <span class="citation" data-cites="ttimbers">(<a href="#ref-ttimbers" role="doc-biblioref">Timbers 2024</a>)</span></p>
 </section>
 </section>
-<section id="results-and-discussion" class="level2">
-<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<section id="results-and-discussion" class="level1">
+<h1>Results and Discussion</h1>
 <p>To look at whether the chosen features might be helpful in predicting the existance of washrooms in Vancouver parks we began with some Exploratory Data Analysis (EDA). We analyze the counts of binary features in parks based on the presence of washrooms to identify patterns in park amenities. We can see from <a href="#fig-binary-washrooms" class="quarto-xref">Figure&nbsp;1</a> and <a href="#fig-binary-nowashrooms" class="quarto-xref">Figure&nbsp;2</a> that parks with washrooms tend to be associated with higher counts of other amenities compared to those without washrooms.</p>
 <div id="fig-binary-washrooms" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -250,7 +254,7 @@ Figure&nbsp;5: Confusion Matrix of SVM Performance on Test Data
 </div>
 <p>The analysis reveals that parks equipped with washrooms generally offer a wider range of amenities and larger hectare compared to those without washrooms. This suggests that parks with washrooms may be designed to accommodate more visitors and provide a more comprehensive recreational experience. The presence of washrooms could be an indicator of a park’s overall quality and the level of services it provides to the public.</p>
 </section>
-<section id="references" class="level2 unnumbered">
+<section id="references" class="level1 unnumbered">
 
 
 </section>
