@@ -54,12 +54,17 @@ python scripts/eda.py \
     --plot-to=results/figures \
     --tables-to=results/tables
 
-python scripts/build_model_to_predict_washroom.py \
-    --training-data=data/processed/parks_train.csv \
-    --test-data=data/processed/parks_test.csv \
+python scripts/fit_parks_washroom_classifier.py \
+    --train-data=data/processed/parks_train.csv \
     --preprocessor=results/models/parks_preprocessor.pickle \
     --results-to=results/tables \
-    --models-to=results/models \
+    --pipeline-to=results/models \
+    --seed=123
+
+python scripts/evaluate_parks_washroom_predictor.py \
+    --test-data=data/processed/parks_test.csv \
+    --pipeline-from=results/models/pipe_svm_rbf_fully_trained.pickle \
+    --results-to=results/tables \
     --viz-to=results/figures \
     --seed=123
 

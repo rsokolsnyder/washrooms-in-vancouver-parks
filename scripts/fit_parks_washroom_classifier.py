@@ -10,10 +10,8 @@ import pickle
 from sklearn.model_selection import cross_validate
 from sklearn.dummy import DummyClassifier
 from sklearn.pipeline import make_pipeline
-import matplotlib.pyplot as plt
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import ConfusionMatrixDisplay
 
 
 # Function for cv score, adapted from 571 lab 2
@@ -44,18 +42,14 @@ def mean_std_cross_val_scores(model, X_train, y_train, **kwargs):
 @click.command()
 @click.option('--train-data', type=str, help="Path to train data")
 @click.option('--preprocessor', type=str, help="Path to parks_preprocessor.pickle")
-#@click.option('--scaled-test-data', type=str, help="Path to scaled test data")
-#@click.option('--y-data', type=str, help="Path to y data")
 @click.option('--results-to', type=str, help="Path to directory where cross validation table will be written to")
 @click.option('--pipeline-to', type=str, help="Path to directory where the model object will be written to")
-#@click.option('--viz-to', type=str, help="Path to directory where visualizations will be written to")
 @click.option('--seed', type=int, help="Random seed", default=123)
     
 def main(train_data, preprocessor, results_to, pipeline_to, seed):
     '''Fits the parks washroom classifier on the training data 
     and saves the pipeline object results.'''
     np.random.seed(seed)
-    set_config(transform_output="default")
 
     # Read Train Data and preprocessor
     target = "Washrooms"
@@ -75,7 +69,7 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
     
     # Write out result and pickle model
     dummy_df.transpose().to_csv(os.path.join(results_to, "dummy_result.csv"), index=True)
-    with open(os.path.join(pipeline_to, "pipe_dummy_untrain.pickle"), 'wb') as f:
+    with open(os.path.join(pipeline_to, "pipe_dummy.pickle"), 'wb') as f:
         pickle.dump(pipe_dummy, f)
 
     # RBF SVC model implementation
@@ -87,7 +81,7 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
 
     # Write out result and pickle model
     svm_rbf_df.transpose().to_csv(os.path.join(results_to, "svm_rbf_result.csv"), index=True)
-    with open(os.path.join(pipeline_to, "pipe_svm_rbf_untrain.pickle"), 'wb') as f:
+    with open(os.path.join(pipeline_to, "pipe_svm_rbf.pickle"), 'wb') as f:
         pickle.dump(pipe_svm_rbf, f)
 
     # knn model implementation
@@ -99,7 +93,7 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
 
     # Write out result and pickle model
     knn_df.transpose().to_csv(os.path.join(results_to, "knn_result.csv"), index=True)
-    with open(os.path.join(pipeline_to, "pipe_knn_untrain.pickle"), 'wb') as f:
+    with open(os.path.join(pipeline_to, "pipe_knn.pickle"), 'wb') as f:
         pickle.dump(pipe_knn, f)
 
     # Merge model Cross Validate results together
@@ -109,7 +103,7 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
 
     # Fit model
     pipe_svm_rbf_fit = pipe_svm_rbf.fit(X_train, y_train)
-    with open(os.path.join(models_to, "pipe_svm_rbf_fully_trained.pickle"), 'wb') as f:
+    with open(os.path.join(pipeline_to, "pipe_svm_rbf_fully_trained.pickle"), 'wb') as f:
         pickle.dump(pipe_svm_rbf_fit, f)
 
 if __name__ == '__main__':
