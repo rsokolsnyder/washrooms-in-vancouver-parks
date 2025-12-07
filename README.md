@@ -10,7 +10,7 @@ We retrieved the public Park data from the City of Vancouver Open Data Portal. W
 
 ## Report
 
-The final report can be found in the [python notebook](notebooks/washrooms_in_parks.ipynb)
+The final report can be found in the [PDF](notebooks/washrooms_in_parks.pdf)
 
 ## Usage
 
@@ -78,7 +78,7 @@ docker compose rm
 ## Dependencies
 
 `conda` (version 23.9.0 or higher)
-Python and the package dependencies listed in the [environment.yml](environment.yml) file
+
 
 ## License
 
