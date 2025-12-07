@@ -176,7 +176,7 @@ Figure&nbsp;4: Frequency of Washrooms in Parks across Neighbourhoods
 </figcaption>
 </figure>
 </div>
-<p>3 models were used to predict the presence of washrooms in parks based on the binary, numeric and categorical features. The models used were KNN, SVC with RBF kernal and Dummy classification. The performance of each model was evaluated using cross validation score. The results (<a href="#tbl-cv-results" class="quarto-xref">Table&nbsp;1</a>) indicate that the SVC with RBF kernal model had a better performance than the other two models in predicting the presence of washrooms in parks. Finally, we fit the SVC model to our test data to confirm our results, and evaluated the model performance using a confusion matrix (<a href="#fig-confusion" class="quarto-xref">Figure&nbsp;5</a>)</p>
+<p>3 models were used to predict the presence of washrooms in parks based on the binary, numeric and categorical features. The models used were KNN, SVC with RBF kernal and Dummy classification. The performance of each model was evaluated using cross validation score. The results (<a href="#tbl-cv-results" class="quarto-xref">Table&nbsp;1</a>) indicate that the SVC with RBF kernal model had a better performance than the other two models in predicting the presence of washrooms in parks. Finally, we fit the SVC model to our test data to confirm our results, and evaluated the model performance using a confusion matrix (<a href="#fig-confusion" class="quarto-xref">Figure&nbsp;5</a>).</p>
 <div class="cell" data-execution_count="2">
 <div id="tbl-cv-results" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -184,7 +184,7 @@ Figure&nbsp;4: Frequency of Washrooms in Parks across Neighbourhoods
 Table&nbsp;1: Cross-Validation results for Dummy, KNN and SVC models
 </figcaption>
 <div aria-describedby="tbl-cv-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 5%">
@@ -207,7 +207,7 @@ Table&nbsp;1: Cross-Validation results for Dummy, KNN and SVC models
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">fit_time</td>
 <td style="text-align: left;">0.006 (+/- 0.001)</td>
-<td style="text-align: left;">0.007 (+/- 0.000)</td>
+<td style="text-align: left;">0.007 (+/- 0.001)</td>
 <td style="text-align: left;">0.006 (+/- 0.000)</td>
 </tr>
 <tr class="even">
@@ -215,21 +215,21 @@ Table&nbsp;1: Cross-Validation results for Dummy, KNN and SVC models
 <td style="text-align: left;">score_time</td>
 <td style="text-align: left;">0.003 (+/- 0.000)</td>
 <td style="text-align: left;">0.004 (+/- 0.000)</td>
-<td style="text-align: left;">0.014 (+/- 0.023)</td>
+<td style="text-align: left;">0.011 (+/- 0.016)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">test_score</td>
-<td style="text-align: left;">0.678 (+/- 0.014)</td>
-<td style="text-align: left;">0.710 (+/- 0.065)</td>
-<td style="text-align: left;">0.651 (+/- 0.065)</td>
+<td style="text-align: left;">0.691 (+/- 0.012)</td>
+<td style="text-align: left;">0.691 (+/- 0.032)</td>
+<td style="text-align: left;">0.664 (+/- 0.046)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">train_score</td>
-<td style="text-align: left;">0.678 (+/- 0.003)</td>
-<td style="text-align: left;">0.765 (+/- 0.041)</td>
-<td style="text-align: left;">0.819 (+/- 0.018)</td>
+<td style="text-align: left;">0.691 (+/- 0.003)</td>
+<td style="text-align: left;">0.765 (+/- 0.011)</td>
+<td style="text-align: left;">0.784 (+/- 0.022)</td>
 </tr>
 </tbody>
 </table>

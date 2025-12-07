@@ -32,7 +32,7 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     performs data validation, and builds the preprocessor.'''
     np.random.seed(seed)
 
-    park = pd.read_csv(raw_data, sep=';')
+    park = pd.read_csv(raw_data)
     
     # set up invalid data logging
     # adapted from DSCI 522 Textbook
@@ -130,7 +130,7 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     else:
         park = data
 
-    park.to_csv(os.path.join(data_to, "pandera_validated_parks.csv"))
+    park.to_csv(os.path.join(data_to, "pandera_validated_parks.csv"), index=False)
     
     # train and test data set up
     train_df, test_df = train_test_split(park, test_size=0.3, random_state=123)
@@ -171,7 +171,7 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     # Prepare dataset that matches Deepcheck syntax
     dc_categorical_features = categorical_features + binary_features
     dc_train_df = train_df.drop(columns = drop_features)
-    dc_train_df.to_csv(os.path.join(data_to, "deepchecks_parks_train.csv"))
+    dc_train_df.to_csv(os.path.join(data_to, "deepchecks_parks_train.csv"), index=False)
 
     # Checking procedure and result
     fl_check_ds = Dataset(dc_train_df, label=target, cat_features=dc_categorical_features)

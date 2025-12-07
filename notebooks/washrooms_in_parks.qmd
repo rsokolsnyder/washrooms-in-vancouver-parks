@@ -57,7 +57,7 @@ Finally, categorical features are also visualized using bar charts (@fig-neighbo
 
 ![Frequency of Washrooms in Parks across Neighbourhoods](../results/figures/neighbourhood.png){#fig-neighbourhood width=70%}
 
-3 models were used to predict the presence of washrooms in parks based on the binary, numeric and categorical features. The models used were KNN, SVC with RBF kernal and Dummy classification. The performance of each model was evaluated using cross validation score. The results (@tbl-cv-results) indicate that the SVC with RBF kernal model had a better performance than the other two models in predicting the presence of washrooms in parks. Finally, we fit the SVC model to our test data to confirm our results, and evaluated the model performance using a confusion matrix (@fig-confusion)
+3 models were used to predict the presence of washrooms in parks based on the binary, numeric and categorical features. The models used were KNN, SVC with RBF kernal and Dummy classification. The performance of each model was evaluated using cross validation score. The results (@tbl-cv-results) indicate that the SVC with RBF kernal model had a better performance than the other two models in predicting the presence of washrooms in parks. Finally, we fit the SVC model to our test data to confirm our results, and evaluated the model performance using a confusion matrix (@fig-confusion). 
 
 ```{python}
 #| label: tbl-cv-results
@@ -68,6 +68,7 @@ Markdown(cv_results.to_markdown())
 ```
 
 ![Confusion Matrix of SVM Performance on Test Data](../results/figures/svm_confusion_matrix.png){#fig-confusion width=70%}
+
 
 The analysis reveals that parks equipped with washrooms generally offer a wider range of amenities and larger hectare compared to those without washrooms. This suggests that parks with washrooms may be designed to accommodate more visitors and provide a more comprehensive recreational experience. The presence of washrooms could be an indicator of a park's overall quality and the level of services it provides to the public.
 
