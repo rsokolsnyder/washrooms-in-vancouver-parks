@@ -34,18 +34,7 @@ docker compose up
 
 3. In terminal, look for a URL start with `http://127.0.0.1:8888/lab?token=`, copy the whole URL and paste into the browser
 
-4. To run the analysis, open notebooks/washroom-in-vancouver-parks.ipynb in Jupyter Lab and under the "Kernel" menu click
-"Restart Kernel and Run All Cells"
-
-#### Clean up
-
-1. On the terminal, type `Ctrl + c` to terminate the container and run the command below in the same location:
-
-```
-docker compose rm
-
-```
-## Running with Scripts
+4. To run the analysis, open a terminal and run the following commands:
 
 ```
 python scripts/download_data.py \
@@ -73,6 +62,17 @@ python scripts/build_model_to_predict_washroom.py \
     --models-to=results/models \
     --viz-to=results/figures \
     --seed=123
+
+quarto render notebooks/washrooms_in_parks.qmd
+```
+
+#### Clean up
+
+1. On the terminal, type `Ctrl + c` to terminate the container and run the command below in the same location:
+
+```
+docker compose rm
+
 ```
 
 ## Dependencies
