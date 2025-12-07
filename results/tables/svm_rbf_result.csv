@@ -1,2 +1,2 @@
-fit_time,score_time,test_score,train_score
-0.003 (+/- 0.003),0.002 (+/- 0.001),0.684 (+/- 0.037),0.755 (+/- 0.023)
+,fit_time,score_time,test_score,train_score
+svm_rbf,0.005 (+/- 0.002),0.003 (+/- 0.001),0.710 (+/- 0.065),0.765 (+/- 0.041)
