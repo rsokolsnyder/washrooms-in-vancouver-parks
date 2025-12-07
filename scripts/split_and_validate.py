@@ -29,11 +29,10 @@ from deepchecks.tabular.checks.data_integrity import FeatureFeatureCorrelation
 @click.option('--seed', type=int, help="Random seed", default=123)
 def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     '''This script splits the raw data into train and test sets, 
-    and then preprocesses the data to be used in exploratory data analysis.
-    It also saves the preprocessor to be used in the model training script.'''
+    performs data validation, and builds the preprocessor.'''
     np.random.seed(seed)
 
-    park = pd.read_csv(raw_data, sep=';')
+    park = pd.read_csv(raw_data)
     
     # set up invalid data logging
     # adapted from DSCI 522 Textbook
@@ -131,7 +130,7 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     else:
         park = data
 
-    park.to_csv(os.path.join(data_to, "pandera_validated_parks.csv"))
+    park.to_csv(os.path.join(data_to, "pandera_validated_parks.csv"), index=False)
     
     # train and test data set up
     train_df, test_df = train_test_split(park, test_size=0.3, random_state=123)
@@ -172,7 +171,7 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     # Prepare dataset that matches Deepcheck syntax
     dc_categorical_features = categorical_features + binary_features
     dc_train_df = train_df.drop(columns = drop_features)
-    dc_train_df.to_csv(os.path.join(data_to, "deepchecks_parks_train.csv"))
+    dc_train_df.to_csv(os.path.join(data_to, "deepchecks_parks_train.csv"), index=False)
 
     # Checking procedure and result
     fl_check_ds = Dataset(dc_train_df, label=target, cat_features=dc_categorical_features)
@@ -229,8 +228,8 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
         columns=parks_preprocessor.get_feature_names_out()
     )
 
-    scaled_parks_train.to_csv(os.path.join(data_to, "scaled_parks_train.csv"), index=False)
-    scaled_parks_test.to_csv(os.path.join(data_to, "scaled_parks_test.csv"), index=False)
+    scaled_parks_train.to_csv(os.path.join(data_to, "scaled_parks_X_train.csv"), index=False)
+    scaled_parks_test.to_csv(os.path.join(data_to, "scaled_parks_X_test.csv"), index=False)
 
 if __name__ == '__main__':
     main()

@@ -10,7 +10,7 @@ We retrieved the public Park data from the City of Vancouver Open Data Portal. W
 
 ## Report
 
-The final report can be found in the [python notebook](notebooks/washrooms_in_parks.ipynb)
+The final report can be found in the [HTML](notebooks/washrooms_in_parks.html)
 
 ## Usage
 
@@ -34,8 +34,42 @@ docker compose up
 
 3. In terminal, look for a URL start with `http://127.0.0.1:8888/lab?token=`, copy the whole URL and paste into the browser
 
-4. To run the analysis, open notebooks/washroom-in-vancouver-parks.ipynb in Jupyter Lab and under the "Kernel" menu click
-"Restart Kernel and Run All Cells"
+4. To run the analysis, open a terminal and run the following commands:
+
+```
+python scripts/download_data.py \
+    --url="https://opendata.vancouver.ca/api/explore/v2.1/catalog/datasets/parks/exports/csv?lang=en&timezone=America%2FLos_Angeles&use_labels=true&delimiter=%3B" \
+    --write_to=data/raw
+
+python scripts/split_and_validate.py \
+    --raw-data=data/raw/parks.csv \
+    --logs-to=logs \
+    --data-to=data/processed \
+    --viz-to=results/figures \
+    --preprocessor-to=results/models \
+    --seed=123
+
+python scripts/eda.py \
+    --training-data=data/processed/parks_train.csv \
+    --plot-to=results/figures \
+    --tables-to=results/tables
+
+python scripts/fit_parks_washroom_classifier.py \
+    --train-data=data/processed/parks_train.csv \
+    --preprocessor=results/models/parks_preprocessor.pickle \
+    --results-to=results/tables \
+    --pipeline-to=results/models \
+    --seed=123
+
+python scripts/evaluate_parks_washroom_predictor.py \
+    --test-data=data/processed/parks_test.csv \
+    --pipeline-from=results/models/pipe_svm_rbf_fully_trained.pickle \
+    --results-to=results/tables \
+    --viz-to=results/figures \
+    --seed=123
+
+quarto render notebooks/washrooms_in_parks.qmd
+```
 
 #### Clean up
 
@@ -45,22 +79,11 @@ docker compose up
 docker compose rm
 
 ```
-## Running with Scripts
-
-```
-python scripts/split_and_validate.py \
-    --raw-data=data/raw/parks.csv \
-    --logs-to=logs \
-    --data-to=data/processed \
-    --viz-to=results/figures \
-    --preprocessor-to=results/models \
-    --seed=123
-```
 
 ## Dependencies
 
 `conda` (version 23.9.0 or higher)
-Python and the package dependencies listed in the [environment.yml](environment.yml) file
+
 
 ## License
 

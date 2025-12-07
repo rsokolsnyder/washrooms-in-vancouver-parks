@@ -7,16 +7,8 @@ import os
 import numpy as np
 import pandas as pd
 import pickle
-from sklearn import set_config
-from sklearn.model_selection import train_test_split
-from sklearn.compose import ColumnTransformer, make_column_transformer, make_column_selector
-from sklearn.model_selection import cross_val_score, cross_validate
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import make_pipeline
 import matplotlib.pyplot as plt
-from sklearn.svm import SVC
-from sklearn.metrics import fbeta_score, make_scorer
+from sklearn.metrics import fbeta_score
 from sklearn.metrics import ConfusionMatrixDisplay
 
 @click.command()
@@ -30,7 +22,6 @@ def main(test_data, pipeline_from, results_to, viz_to, seed):
     '''Evaluates the parks washroom classifier on the test data 
     and saves the evaluation results.'''
     np.random.seed(seed)
-    set_config(transform_output="default")
 
     # read in data & split
     target = "Washrooms"
