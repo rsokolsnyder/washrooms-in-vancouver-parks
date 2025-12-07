@@ -8,5 +8,3 @@ RUN conda update --quiet --file /tmp/conda-linux-64.lock \
     && fix-permissions "/home/${NB_USER}"
 
 RUN pip install deepchecks==0.19.1
-
-RUN quarto install tinytex --update-path
