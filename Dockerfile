@@ -8,11 +8,3 @@ RUN conda update --quiet --file /tmp/conda-linux-64.lock \
     && fix-permissions "/home/${NB_USER}"
 
 RUN pip install deepchecks==0.19.1
-
-USER root
-
-# install lmodern to render Quarto PDF
-RUN sudo apt update \
-    && sudo apt install -y lmodern
-
-USER $NB_UID
