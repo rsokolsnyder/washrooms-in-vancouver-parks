@@ -8,8 +8,102 @@ import numpy as np
 import pandas as pd
 import pickle
 import matplotlib.pyplot as plt
-from sklearn.metrics import fbeta_score
-from sklearn.metrics import ConfusionMatrixDisplay
+from sklearn.metrics import fbeta_score, ConfusionMatrixDisplay
+
+
+def evaluate_pipeline(pipeline, X_test, y_test):
+    """
+    Evaluate a fitted pipeline on test data.
+
+    Parameters
+    ----------
+    pipeline : sklearn.pipeline.Pipeline
+        Trained pipeline object.
+    X_test : pandas.DataFrame
+        Test features.
+    y_test : pandas.Series
+        Test labels.
+
+    Returns
+    -------
+    tuple
+        accuracy : float
+            Classification accuracy on test data.
+        f2_score : float
+            F2 score (beta=2) with positive label 'Y'.
+        y_pred : numpy.ndarray
+            Predicted labels for test data.
+        cm_table : pandas.DataFrame
+            Confusion matrix table (counts of true vs predicted).
+    """
+    accuracy = pipeline.score(X_test, y_test)
+    y_pred = pipeline.predict(X_test)
+    f2_score = fbeta_score(
+        y_test, 
+        y_pred, 
+        beta=2, 
+        pos_label="Y"
+    )
+    cm_table = pd.crosstab(y_test, y_pred)
+    return accuracy, f2_score, y_pred, cm_table
+
+
+def save_evaluation_csv(accuracy, f2_score, y_test, y_pred, cm_table, results_to):
+    """
+    Save evaluation results (scores, predictions, confusion matrix) as CSV files.
+
+    Parameters
+    ----------
+    accuracy : float
+        Classification accuracy.
+    f2_score : float
+        F2 score (beta=2).
+    y_test : pandas.Series
+        True labels.
+    y_pred : numpy.ndarray
+        Predicted labels.
+    cm_table : pandas.DataFrame
+        Confusion matrix table.
+    results_to : str
+        Directory path to save CSV outputs.
+    """
+    pd.DataFrame({
+        "accuracy": [accuracy],
+        "F2 score (beta = 2)": [f2_score]
+    }).to_csv(os.path.join(results_to, "test_scores.csv"), index=False)
+
+    pd.DataFrame({"y_true": y_test, "y_pred": y_pred}).to_csv(
+        os.path.join(results_to, "test_predictions.csv"), index=False
+    )
+
+    cm_table.to_csv(os.path.join(results_to, "svm_confusion_matrix.csv"))
+
+
+def save_confusion_matrix_plot(pipeline, X_test, y_test, viz_to):
+    """
+    Save confusion matrix visualization as PNG.
+
+    Parameters
+    ----------
+    pipeline : sklearn.pipeline.Pipeline
+        Trained pipeline object.
+    X_test : pandas.DataFrame
+        Test features.
+    y_test : pandas.Series
+        Test labels.
+    viz_to : str
+        Directory path to save PNG visualization.
+    """
+    cm_display = ConfusionMatrixDisplay.from_estimator(
+        pipeline, 
+        X_test, 
+        y_test, 
+        values_format="d"
+    )
+    cm_display.plot()
+    plt.savefig(os.path.join(viz_to, "svm_confusion_matrix.png"), dpi=200)
+    plt.close()
+
 
 @click.command()
 @click.option('--test-data', type=str, help="Path to test data")
@@ -33,50 +127,14 @@ def main(test_data, pipeline_from, results_to, viz_to, seed):
     with open(pipeline_from, 'rb') as f:
         parks_fit = pickle.load(f)
 
-    # Compute accuracy
-    accuracy = parks_fit.score(X_test, y_test)
+    # Evaluate
+    accuracy, f2_score, y_pred, cm_table = evaluate_pipeline(parks_fit, X_test, y_test)
 
-    # Predictions
-    y_pred = parks_fit.predict(X_test)
-    
-    # Compute F2 score (beta = 2)
-    f2_beta_2_score = fbeta_score(
-        y_test,
-        y_pred,
-        beta=2,
-        pos_label='Y'
-    )
+    # Save CSV outputs
+    save_evaluation_csv(accuracy, f2_score, y_test, y_pred, cm_table, results_to)
 
-    # Save scores
-    test_scores = pd.DataFrame({
-        'accuracy': [accuracy], 
-        'F2 score (beta = 2)': [f2_beta_2_score]
-    })
-    test_scores.to_csv(os.path.join(results_to, "test_scores.csv"), index=False)
-
-    # Save predictions
-    preds_df = pd.DataFrame({
-        "y_true": y_test,
-        "y_pred": y_pred
-    })
-    preds_df.to_csv(os.path.join(results_to, "test_predictions.csv"), index=False)
-
-    # Create and save contingency table in both text and plot
-    confusion_matrix = pd.crosstab(
-        y_test,
-        y_pred,
-    )
-    confusion_matrix.to_csv(os.path.join(results_to, "svm_confusion_matrix.csv"))
-    
-    cm = ConfusionMatrixDisplay.from_estimator(
-        parks_fit,
-        X_test,
-        y_test,
-        values_format="d"
-    )
-    cm.plot()    
-    plt.savefig(os.path.join(viz_to, "svm_confusion_matrix.png"), dpi=200)
-    plt.close()
+    # Save PNG visualization
+    save_confusion_matrix_plot(parks_fit, X_test, y_test, viz_to)
 
 
 if __name__ == '__main__':
