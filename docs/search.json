@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "reports/index.html",
+    "href": "reports/index.html",
+    "title": "Predicting the Presence of Washrooms in Vancouver Parks",
+    "section": "",
+    "text": "We retrieved the public Park data from the City of Vancouver Open Data Portal. We aim to construct a classification model using the adequate algorithm to help us evaluate the factors that influenced the construction of washroom which is one of the important amenities in public parks. We used two models, KNN and SVM RBVF, to test our data.\nThe cross-validation result shows that SVM RBF provides a small but consistent improvement over the baseline, while KNN overfits and fails to generalize. The dataset may require richer features or alternative models to achieve stronger predictive performance on washroom availability."
+  },
+  {
+    "objectID": "reports/index.html#data",
+    "href": "reports/index.html#data",
+    "title": "Predicting the Presence of Washrooms in Vancouver Parks",
+    "section": "Data",
+    "text": "Data\nThe data set that was used in this project is from City of Vancouver Open Data Portal (Vancouver 2025). There are over 220 parks and 40 major facilities in the city of Vancouver maintained by the Vancouver Board of Parks and Recreation. In the data set, it has covered 218 park information regarding facilities available to the parks, their locations, and sizes."
+  },
+  {
+    "objectID": "reports/index.html#analysis",
+    "href": "reports/index.html#analysis",
+    "title": "Predicting the Presence of Washrooms in Vancouver Parks",
+    "section": "Analysis",
+    "text": "Analysis\nWe compared the performance of a k-nearest neighbors (k-nn) algorithm and a Support Vector Machine with Radial Basis Function (SVM RBF) algorithm to build a binary classification model to predict whether a park has washrooms or not. We included neighbourhood name, park size (hectare), whether the park is official, whether there are any advisories, whether there are additional facilities and whether the park has special features to fit the model. Data was split with 70% of the original dataset in the training set and the remaining 30% in the test set. We conducted 5-fold cross-validation to compare the models with a baseline. All variables preprocessed just before model fitting to ensure reliability. The Python programming language (Van Rossum and Drake 2009) and following scikit-learn models were used to perform this analysis: DummyClassifier (DummyClassifier: Sci-Kit Learn Documentation, n.d.), K-Neighbors Classifier (KNeighborsClassifier: Sci-Kit Learn Documentation, n.d.), SVM RBF Classifier (SVC: Sci-Kit Learn Documentation, n.d.). Inspiration for this report and methodologies came from (Timbers 2024)"
+  }
+]
