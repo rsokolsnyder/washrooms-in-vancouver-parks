@@ -1,10 +1,13 @@
-### Test Notes
+## Test Notes
 
-##### Run the tests
-Tests are run using the pytest command in the root of the project.
+#### Run the tests
+Tests are run using the pytest command in the root of the project. Described as below:
 
-##### Preparation of test zip files
-The test zip files used in test_read_zip.py were genereated by running the generate_test_zip_files.py script in the tests directory. These files need to exist in the remote GitHub repository for the tests to pass. If for some reason they go missing from the remote repository, we can re-run the generate_test_zip_files.py script to re-generate them and then push them to the remote repository.
+- validation test:
+pytest -q tests/test_validate_target_distribution.py
 
-##### Test teardown
-conftest.py contains the code to delete the files and directories created by the tests which need to be deleted at the end of the tests.
+- fitting test:
+pytest -q tests/test_fit_workflow.py
+
+- evaluation test:
+pytest -q tests/test_evaluate_workflow.py
