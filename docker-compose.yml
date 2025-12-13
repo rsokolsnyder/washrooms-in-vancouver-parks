@@ -1,7 +1,7 @@
 services:
   # run jupyter notebook inside jupyter 
   jupyter-notebook:
-    image: yauchungki1305/washrooms-in-vancouver-parks:6f3ad70
+    image: yauchungki1305/washrooms-in-vancouver-parks:98907ae
     ports:
       - "8888:8888"
     volumes:
