@@ -79,30 +79,30 @@ def save_evaluation_csv(accuracy, f2_score, y_test, y_pred, cm_table, results_to
     cm_table.to_csv(os.path.join(results_to, "svm_confusion_matrix.csv"))
 
 
-def save_confusion_matrix_plot(pipeline, X_test, y_test, viz_to):
-    """
-    Save confusion matrix visualization as PNG.
+# def save_confusion_matrix_plot(pipeline, X_test, y_test, viz_to):
+#     """
+#     Save confusion matrix visualization as PNG.
 
-    Parameters
-    ----------
-    pipeline : sklearn.pipeline.Pipeline
-        Trained pipeline object.
-    X_test : pandas.DataFrame
-        Test features.
-    y_test : pandas.Series
-        Test labels.
-    viz_to : str
-        Directory path to save PNG visualization.
-    """
-    cm_display = ConfusionMatrixDisplay.from_estimator(
-        pipeline, 
-        X_test, 
-        y_test, 
-        values_format="d"
-    )
-    cm_display.plot()
-    plt.savefig(os.path.join(viz_to, "svm_confusion_matrix.png"), dpi=200)
-    plt.close()
+#     Parameters
+#     ----------
+#     pipeline : sklearn.pipeline.Pipeline
+#         Trained pipeline object.
+#     X_test : pandas.DataFrame
+#         Test features.
+#     y_test : pandas.Series
+#         Test labels.
+#     viz_to : str
+#         Directory path to save PNG visualization.
+#     """
+#     cm_display = ConfusionMatrixDisplay.from_estimator(
+#         pipeline, 
+#         X_test, 
+#         y_test, 
+#         values_format="d"
+#     )
+#     cm_display.plot()
+#     plt.savefig(os.path.join(viz_to, "svm_confusion_matrix.png"), dpi=200)
+#     plt.close()
 
 
 @click.command()
@@ -133,8 +133,16 @@ def main(test_data, pipeline_from, results_to, viz_to, seed):
     # Save CSV outputs
     save_evaluation_csv(accuracy, f2_score, y_test, y_pred, cm_table, results_to)
 
-    # Save PNG visualization
-    save_confusion_matrix_plot(parks_fit, X_test, y_test, viz_to)
+    # Create and save contingency table into plot
+    cm = ConfusionMatrixDisplay.from_estimator(
+        parks_fit,
+        X_test,
+        y_test,
+        values_format="d"
+    )
+    cm.plot()    
+    plt.savefig(os.path.join(viz_to, "svm_confusion_matrix.png"), dpi=200)
+    plt.close()
 
 
 if __name__ == '__main__':
