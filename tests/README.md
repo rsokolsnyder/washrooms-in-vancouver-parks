@@ -1,7 +1,8 @@
 ## Test Notes
 
 #### Run the tests
-Tests are run using the pytest command in the root of the project. Described as below:
+Tests are run using the pytest command in the root of the project. 
+Use terminal and run the commands listed below:
 
 - download test:
 ```
