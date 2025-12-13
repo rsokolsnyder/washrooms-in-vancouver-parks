@@ -4,11 +4,18 @@
 
 import click
 import os
+import sys
 import numpy as np
 import pandas as pd
 import pickle
 import matplotlib.pyplot as plt
 from sklearn.metrics import fbeta_score, ConfusionMatrixDisplay
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
+from src.evaluate_workflow import (
+    evaluate_pipeline,
+    save_evaluation_csv
+)
 
 
 def evaluate_pipeline(pipeline, X_test, y_test):
@@ -77,32 +84,6 @@ def save_evaluation_csv(accuracy, f2_score, y_test, y_pred, cm_table, results_to
     )
 
     cm_table.to_csv(os.path.join(results_to, "svm_confusion_matrix.csv"))
-
-
-# def save_confusion_matrix_plot(pipeline, X_test, y_test, viz_to):
-#     """
-#     Save confusion matrix visualization as PNG.
-
-#     Parameters
-#     ----------
-#     pipeline : sklearn.pipeline.Pipeline
-#         Trained pipeline object.
-#     X_test : pandas.DataFrame
-#         Test features.
-#     y_test : pandas.Series
-#         Test labels.
-#     viz_to : str
-#         Directory path to save PNG visualization.
-#     """
-#     cm_display = ConfusionMatrixDisplay.from_estimator(
-#         pipeline, 
-#         X_test, 
-#         y_test, 
-#         values_format="d"
-#     )
-#     cm_display.plot()
-#     plt.savefig(os.path.join(viz_to, "svm_confusion_matrix.png"), dpi=200)
-#     plt.close()
 
 
 @click.command()

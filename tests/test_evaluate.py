@@ -16,8 +16,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from scripts.evaluate_parks_washroom_predictor import (
     evaluate_pipeline,
-    save_evaluation_csv,
-    save_confusion_matrix_plot
+    save_evaluation_csv
 )
 
 
@@ -68,14 +67,6 @@ def test_save_evaluation_csv_expected(tmp_path, sample_data, pipeline):
     assert (results_to / "svm_confusion_matrix.csv").exists()
 
 
-def test_save_confusion_matrix_plot_expected(tmp_path, sample_data, pipeline):
-    X, y = sample_data
-    pipeline.fit(X, y)
-    viz_to = tmp_path
-    save_confusion_matrix_plot(pipeline, X, y, str(viz_to))
-    assert (viz_to / "svm_confusion_matrix.png").exists()
-
-
 # --- Edge cases ---
 def test_evaluate_pipeline_tiny_data(tiny_data, pipeline):
     X, y = tiny_data
@@ -100,10 +91,3 @@ def test_save_evaluation_csv_invalid_dir(sample_data, pipeline):
     # Expect OSError when directory doesn't exist
     with pytest.raises(OSError):
         save_evaluation_csv(accuracy, f2_score, y, y_pred, cm_table, "nonexistent_dir")
-
-
-def test_save_confusion_matrix_plot_invalid_pipeline(sample_data):
-    X, y = sample_data
-    # Expect ValueError when pipeline is not a classifier
-    with pytest.raises(ValueError):
-        save_confusion_matrix_plot("not_a_pipeline", X, y, ".")
