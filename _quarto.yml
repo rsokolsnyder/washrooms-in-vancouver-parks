@@ -1,0 +1,4 @@
+project:
+  output-dir: docs
+  render:
+    - reports/washrooms_in_parks.qmd

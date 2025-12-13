@@ -71,6 +71,14 @@ python scripts/evaluate_parks_washroom_predictor.py \
 quarto render notebooks/washrooms_in_parks.qmd
 ```
 
+#### Running the test suite
+
+Use the same `docker compose up` command as described in the [Running the analysis](#running-the-analysis) section above
+to launch Jupyter lab.
+Tests are run using the `pytest` command in the root of the project.
+More details about the test suite can be found in the 
+[`tests`](tests) directory.
+
 #### Clean up
 
 1. On the terminal, type `Ctrl + c` to terminate the container and run the command below in the same location:
