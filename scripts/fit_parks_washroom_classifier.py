@@ -8,7 +8,6 @@ import sys
 import numpy as np
 import pandas as pd
 import pickle
-from sklearn.model_selection import cross_validate
 from sklearn.dummy import DummyClassifier
 from sklearn.pipeline import make_pipeline
 from sklearn.svm import SVC
@@ -17,7 +16,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 # Import functions from src
 from src.fit_workflow import (
-    mean_std_cross_val_scores,
     evaluate_and_save,
     merge_results,
 )
