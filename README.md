@@ -90,7 +90,7 @@ docker compose rm
 
 ## Dependencies
 
-`conda` (version 23.9.0 or higher)
+[Docker](https://www.docker.com/)
 
 
 ## License
