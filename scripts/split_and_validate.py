@@ -5,6 +5,7 @@
 import os
 import click
 import json
+import sys
 import logging
 import numpy as np
 import pandas as pd
@@ -18,6 +19,8 @@ from sklearn.compose import make_column_transformer
 from deepchecks.tabular import Dataset
 from deepchecks.tabular.checks import FeatureLabelCorrelation
 from deepchecks.tabular.checks.data_integrity import FeatureFeatureCorrelation
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from src.validate_target_distribution import validate_target_distribution
 
 
 @click.command()
@@ -138,24 +141,8 @@ def main(raw_data, logs_to, data_to, viz_to, preprocessor_to, seed):
     train_df.to_csv(os.path.join(data_to, "parks_train.csv"), index=False)
     test_df.to_csv(os.path.join(data_to, "parks_test.csv"), index=False)
 
-    # Data Validation Pandera check of target distribution
-    training_schema = pa.DataFrameSchema({
-        "Washrooms": pa.Column(str, checks = [
-            pa.Check(
-                lambda w: (w == "Y").sum() / len(w) >= 0.2, 
-                element_wise=False,
-                error="Target Class may be imbalanced, check source data!"
-            ),
-            pa.Check(
-                lambda w: (w == "N").sum() / len(w) >= 0.2, 
-                element_wise=False,
-                error="Target Class may be imbalanced, check source data!"
-            )
-        ])
-    })
-
-    train_df = training_schema.validate(train_df, lazy=True)
-
+    # validate the distribution of the target feature
+    train_df = validate_target_distribution(train_df)
     train_df.to_csv(os.path.join(data_to, "parks_train.csv"), index=False)
 
     # categorizing features in parks
