@@ -44,25 +44,6 @@ def mean_std_cross_val_scores(model, X_train, y_train, **kwargs):
     ]
     return pd.Series(data=out_col, index=mean_scores.index)
 
-# Build pipeline with preprocessor
-def build_pipeline(preprocessor, model):
-    """
-    Construct a pipeline with the given preprocessor and model.
-
-    Parameters
-    ----------
-    preprocessor : sklearn transformer
-        Preprocessing object (e.g., ColumnTransformer).
-    model : sklearn estimator
-        Model to append after preprocessing.
-
-    Returns
-    -------
-    sklearn.pipeline.Pipeline
-        Pipeline combining preprocessor and model.
-    """
-    return make_pipeline(preprocessor, model)
-
 
 # Evaluate and save one model
 def evaluate_and_save(name, model, preprocessor, X_train, y_train, results_to, pipeline_to, cv=5):
@@ -93,7 +74,7 @@ def evaluate_and_save(name, model, preprocessor, X_train, y_train, results_to, p
     tuple
         (results DataFrame, pipeline object).
     """
-    pipe = build_pipeline(preprocessor, model)
+    pipe = make_pipeline(preprocessor, model)
     scores = mean_std_cross_val_scores(pipe, X_train, y_train, cv=cv, return_train_score=True)
     df = pd.DataFrame({name: scores})
     
@@ -131,35 +112,6 @@ def merge_results(dfs, results_to, filename="combined_result.csv"):
         result = pd.merge(result, df, left_index=True, right_index=True)
     result.to_csv(os.path.join(results_to, filename), index=True)
     return result
-
-
-# Fit and save fully trained pipeline
-def fit_and_save(pipe, X_train, y_train, pipeline_to, name):
-    """
-    Fit a pipeline on training data and save the trained model.
-
-    Parameters
-    ----------
-    pipe : sklearn.pipeline.Pipeline
-        Pipeline to fit.
-    X_train : pandas DataFrame
-        Training features.
-    y_train : pandas Series
-        Training labels.
-    pipeline_to : str
-        Directory path to save fitted pipeline pickle.
-    name : str
-        Model name identifier.
-
-    Returns
-    -------
-    sklearn.pipeline.Pipeline
-        Fully trained pipeline.
-    """
-    pipe_fit = pipe.fit(X_train, y_train)
-    with open(os.path.join(pipeline_to, f"pipe_{name}_fully_trained.pickle"), "wb") as f:
-        pickle.dump(pipe_fit, f)
-    return pipe_fit
 
 
 @click.command()
@@ -219,8 +171,10 @@ def main(train_data, preprocessor, results_to, pipeline_to, seed):
     # Merge results
     merge_results(results_list, results_to)
     
-    # Fit and save one model fully (example: SVC)
-    fit_and_save(pipes["svm_rbf"], X_train, y_train, pipeline_to, "svm_rbf")
+    # Fit and save SVM RBF model
+    pipe_svm_rbf_fit = pipes["svm_rbf"].fit(X_train, y_train)
+    with open(os.path.join(pipeline_to, "pipe_svm_rbf_fully_trained.pickle"), 'wb') as f:
+        pickle.dump(pipe_svm_rbf_fit, f)
 
 if __name__ == '__main__':
     main()
