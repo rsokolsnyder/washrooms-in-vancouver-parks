@@ -6,15 +6,14 @@ import pandas as pd
 import numpy as np
 import pytest
 from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
 from sklearn.dummy import DummyClassifier
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
-from scripts.fit_parks_washroom_classifier import (
+from src.fit_workflow import (
     mean_std_cross_val_scores,
-    build_pipeline,
     evaluate_and_save,
-    merge_results,
-    fit_and_save
+    merge_results
 )
 
 
@@ -42,17 +41,10 @@ def preprocessor():
 
 def test_mean_std_cross_val_scores(sample_data, preprocessor):
     X, y = sample_data
-    pipe = build_pipeline(preprocessor, DummyClassifier(strategy="most_frequent"))
+    pipe = make_pipeline(preprocessor, DummyClassifier(strategy="most_frequent"))
     scores = mean_std_cross_val_scores(pipe, X, y, cv=3)
     assert isinstance(scores, pd.Series)
     assert "test_score" in scores.index
-
-
-def test_build_pipeline(preprocessor):
-    model = DummyClassifier(strategy="most_frequent")
-    pipe = build_pipeline(preprocessor, model)
-    # Pipeline should have two steps
-    assert len(pipe.steps) == 2
 
 
 def test_evaluate_and_save(tmp_path, sample_data, preprocessor):
@@ -78,23 +70,7 @@ def test_evaluate_and_save(tmp_path, sample_data, preprocessor):
 def test_merge_results(tmp_path):
     df1 = pd.DataFrame({"dummy": ["0.5 (+/- 0.1)"]})
     df2 = pd.DataFrame({"svc": ["0.9 (+/- 0.05)"]})
-    results_to = tmp_path
-    merged = merge_results([df1, df2], str(results_to))
+    merged = merge_results([df1, df2], str(tmp_path))
     assert "dummy" in merged.columns
     assert "svc" in merged.columns
-    assert (results_to / "combined_result.csv").exists()
-
-
-def test_fit_and_save(tmp_path, sample_data, preprocessor):
-    X, y = sample_data
-    pipe = build_pipeline(preprocessor, DummyClassifier(strategy="most_frequent"))
-    pipeline_to = tmp_path
-    fitted = fit_and_save(pipe, X, y, str(pipeline_to), "dummy")
-    assert hasattr(fitted, "predict")
-    # Check pickle exists
-    assert (pipeline_to / "pipe_dummy_fully_trained.pickle").exists()
-    # Load pickle and test predict
-    with open(pipeline_to / "pipe_dummy_fully_trained.pickle", "rb") as f:
-        loaded = pickle.load(f)
-    preds = loaded.predict(X)
-    assert len(preds) == len(y)
+    assert (tmp_path / "combined_result.csv").exists()
