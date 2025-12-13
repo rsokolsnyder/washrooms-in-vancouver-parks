@@ -17,3 +17,6 @@ tests/__pycache__
 
 **.cache/
 **.conda/
+**.quarto/
+/.quarto/
+**/*.quarto_ipynb
