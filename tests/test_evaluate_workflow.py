@@ -20,7 +20,7 @@ from scripts.evaluate_parks_washroom_predictor import (
 )
 
 
-# --- Fixtures ---
+# Fixtures
 @pytest.fixture
 def sample_data():
     """Synthetic dataset for expected use cases."""
@@ -43,7 +43,7 @@ def pipeline():
     return make_pipeline(StandardScaler(), DummyClassifier(strategy="most_frequent"))
 
 
-# --- Expected use cases ---
+# Expected use cases
 def test_evaluate_pipeline_expected(sample_data, pipeline):
     X, y = sample_data
     pipeline.fit(X, y)
@@ -67,7 +67,7 @@ def test_save_evaluation_csv_expected(tmp_path, sample_data, pipeline):
     assert (results_to / "svm_confusion_matrix.csv").exists()
 
 
-# --- Edge cases ---
+# Edge cases
 def test_evaluate_pipeline_tiny_data(tiny_data, pipeline):
     X, y = tiny_data
     pipeline.fit(X, y)
@@ -75,7 +75,7 @@ def test_evaluate_pipeline_tiny_data(tiny_data, pipeline):
     assert len(y_pred) == len(y)
 
 
-# --- Error cases ---
+# Error cases
 def test_evaluate_pipeline_invalid_model(sample_data):
     X, y = sample_data
     # Passing a non-pipeline should raise AttributeError
