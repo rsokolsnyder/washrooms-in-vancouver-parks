@@ -1,5 +1,5 @@
 import pandas as pd
-import pandera as pa
+import pandera.pandas as pa
 
 def validate_target_distribution(parks_training_df):
     """
@@ -22,5 +22,28 @@ def validate_target_distribution(parks_training_df):
     
     Notes
     -----
-    We expect both possible values of 'Washrooms' to occur in at least 20% of the rows of the training dataframe
+    We expect both possible values of 'Washrooms' to occur in at least 20% of the rows of the training dataframe. We have also previously validated that all values in the 'Washrooms' column are not null and have either the value 'Y' or 'N'
     """
+    if not isinstance(parks_training_df, pd.DataFrame):
+        raise TypeError("Input must be a pandas DataFrame")    
+    if parks_training_df.empty:
+        raise ValueError("Dataframe must contain observations.")
+
+
+    # Data Validation Pandera check of target distribution
+    training_schema = pa.DataFrameSchema({
+        "Washrooms": pa.Column(str, checks = [
+            pa.Check(
+                lambda w: (w == "Y").sum() / len(w) >= 0.2, 
+                element_wise=False,
+                error="Target Class may be imbalanced, check source data!"
+            ),
+            pa.Check(
+                lambda w: (w == "N").sum() / len(w) >= 0.2, 
+                element_wise=False,
+                error="Target Class may be imbalanced, check source data!"
+            )
+        ])
+    })
+
+    return training_schema.validate(parks_training_df, lazy=True)
