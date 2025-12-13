@@ -3,6 +3,11 @@
 #### Run the tests
 Tests are run using the pytest command in the root of the project. Described as below:
 
+- download test:
+```
+pytest -q tests/test_download.py
+```
+
 - validation test:
 ```
 pytest -q tests/test_validate_target_distribution.py
