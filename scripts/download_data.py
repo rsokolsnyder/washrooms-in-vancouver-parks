@@ -5,17 +5,9 @@
 import click
 import pandas as pd
 import os
-
-def download_and_save_csv(url: str, write_to: str, filename: str = "parks.csv"):
-    """Download a CSV file from a URL and save it to local directory."""
-    try:
-        df = pd.read_csv(url, sep=";")
-    except Exception as e:
-        raise Exception("File appears to be in the incorrect format!")
-    
-    output_path = os.path.join(write_to, filename)
-    df.to_csv(output_path, index=False)
-    return output_path
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+from download_csv import download_and_save_csv
     
 @click.command()
 @click.option('--url', type=str, help="URL of dataset to be download")
