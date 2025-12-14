@@ -2,6 +2,8 @@
 # author: Harry Yau
 # date 2025-12-02
 
+import os
+import matplotlib.pyplot as plt
 
 def save_summary_statistics(df, tables_to):
     """Save summary statistics to CSV."""

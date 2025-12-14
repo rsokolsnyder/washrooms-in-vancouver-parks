@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import pytest
+import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 from download_csv import download_and_save_csv
 

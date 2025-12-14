@@ -48,10 +48,11 @@ evaluate: results/models/pipe_svm_rbf_fully_trained.pickle data/processed/parks_
 		--viz-to=results/figures \
 		--seed=123
 
-notebooks/washrooms_in_parks.html: notebooks/washrooms_in_parks.qmd
-	quarto render notebooks/washrooms_in_parks.qmd
 
-report: notebooks/washrooms_in_parks.html
+docs/reports/washrooms_in_parks.html: reports/washrooms_in_parks.qmd
+	quarto render reports/washrooms_in_parks.qmd
+
+report: docs/reports/washrooms_in_parks.html
 
 clean:
 	rm -rf data/raw/*
@@ -59,4 +60,4 @@ clean:
 	rm -f results/figures/*
 	rm -f results/tables/*
 	rm -f results/models/*
-	rm -f notebooks/*.html
+	rm -f docs/reports/*.html
