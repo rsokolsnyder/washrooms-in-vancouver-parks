@@ -22,14 +22,14 @@ from tabulate import tabulate
 
 # Summary
 
-We retrieved the public Park data from the City of Vancouver Open Data Portal. We aim to construct a classification model using the adequate algorithm to help us evaluate the factors that influenced the construction of washroom which is one of the important amenities in public parks. We used two models, KNN and SVM RBVF, to test our data.
+We retrieved the public Park data from the City of Vancouver Open Data Portal. We aim to construct a binary classification model using the adequate algorithm to help us evaluate the factors that influenced the construction of washroom which is one of the important amenities in public parks. We used two models, KNN and SVM RBF, to test our data.
 
 The cross-validation result shows that SVM RBF provides a small but consistent improvement over the baseline, while KNN overfits and fails to generalize. The dataset may require richer features or alternative models to achieve stronger predictive performance on washroom availability.
 
 # Introduction
 The Vancouver parks dataset [@sourcedata] offers a comprehensive view of the city’s green spaces, capturing details from park names and neighbourhoods to special features and facilities. The Washrooms column is particularly valuable, as it reveals which parks provide public washrooms and which do not. By linking this information to neighbourhoods and park sizes, the dataset becomes a powerful tool for assessing accessibility and identifying gaps in essential amenities across Vancouver’s park system.
 
-By treating washroom presence as a target variable, we wonder if we can use machine learning algorithm to help us predict where facilities are most needed, identify underserved neighbourhoods, and optimize future installations. Using features such as park size, amenities, and neighbourhood context, ML models can uncover hidden patterns in service distribution and guide equitable infrastructure planning.
+By treating washroom presence as a target variable, we wonder if we can use machine learning algorithm to perform binary classification to help us predict where facilities are most needed, identify underserved neighbourhoods, and optimize future installations. Using features such as park size, amenities, and neighbourhood context, ML models can uncover hidden patterns in service distribution and guide equitable infrastructure planning.
 
 # Methodology
 

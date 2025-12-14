@@ -6,11 +6,11 @@ This is a Data Science project completed as part of DSCI 522 (Data Science Workf
 
 ## About this project
 
-We retrieved the public Park data from the City of Vancouver Open Data Portal. We aim to construct a classification model using the adequate algorithm to help us evaluate the factors that influenced the construction of washroom which is one of the important amenities in public parks. We used two models, KNN and SVM RBVF, to test our data. The cross-validation result shows that SVM RBF provides a small but consistent improvement over the baseline, while KNN overfits and fails to generalize. The dataset may require richer features or alternative models to achieve stronger predictive performance on washroom availability.
+We retrieved the public Park data from the City of Vancouver Open Data Portal. We aim to construct a binary classification model using the adequate algorithm to help us evaluate the factors that influenced the construction of washroom which is one of the important amenities in public parks. We used two models, KNN and SVM RBVF, to test our data. The cross-validation result shows that SVM RBF provides a small but consistent improvement over the baseline, while KNN overfits and fails to generalize. The dataset may require richer features or alternative models to achieve stronger predictive performance on washroom availability.
 
 ## Report
 
-The final report can be found in the [HTML](notebooks/washrooms_in_parks.html)
+The final report can be found [here](https://rsokolsnyder.github.io/washrooms-in-vancouver-parks/reports/washrooms_in_parks.html)
 
 ## Usage
 
@@ -90,7 +90,7 @@ docker compose rm
 
 ## Dependencies
 
-`conda` (version 23.9.0 or higher)
+[Docker](https://www.docker.com/)
 
 
 ## License
