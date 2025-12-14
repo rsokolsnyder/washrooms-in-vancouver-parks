@@ -7,6 +7,10 @@ import click
 import matplotlib.pyplot as plt
 import os
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+
+from eda_utils import save_summary_statistics, plot_numeric_feature, plot_categorical_feature, plot_binary_features
+
 @click.command()
 @click.option('--training-data', type=str, help="Path to processed training data")
 @click.option('--plot-to', type=str, help="Path to save plot")
@@ -15,48 +19,19 @@ def main(training_data, tables_to, plot_to):
     '''Plots data analysis in the processed training data
         by class, display and save them'''
     train_df = pd.read_csv(training_data)
-    train_df.describe().to_csv(os.path.join(tables_to, "eda_summary_stats.csv"), index=False)
+
+    # Save summary statistics
+    save_summary_statistics(train_df, tables_to)
 
     # Numeric feature
-    numeric_features = 'Hectare'
-    target = "Washrooms"
-    # for col in numeric_features:
-    train_df.groupby(target)[numeric_features].plot.hist(bins=50, alpha=0.5, legend=True)
-    plt.xlabel(numeric_features);
-    plt.savefig(os.path.join(plot_to, "numeric_feature.png"), dpi=300, bbox_inches="tight", transparent=False)
+    plot_numeric_feature(train_df, numeric_col="Hectare", target="Washrooms", plot_to=plot_to)
 
     # Categorical feature
-    col = 'NeighbourhoodName'
-    cat_df = train_df[[col, target]].copy()
-    cat_df_count = cat_df.groupby([target, col]).size().unstack()
-    cat_df_count.plot.bar()
-    plt.title(col);
-    plt.legend(title=col, bbox_to_anchor=(1.05, 1), loc='upper left');
-    plt.xlabel(col);
-    plt.savefig(os.path.join(plot_to, "neighbourhood.png"), dpi=300, bbox_inches="tight", transparent=False)
+    plot_categorical_feature(train_df, cat_col="NeighbourhoodName", target="Washrooms", plot_to=plot_to)
 
-
+    # Binary features
     binary_features = ['Official', 'Advisories', 'SpecialFeatures', 'Facilities']
-    
-    # Visualize binary features when there is washroom
-    binary_df = train_df[binary_features + [target]].copy()
-    binary_df['Official'] = binary_df['Official'].astype(str).replace({"1": "Y", "0": "N"})
-    washroom_df = binary_df[binary_df[target] == "Y"]
-    washroom_df_count = washroom_df.groupby(target)[binary_features].apply(lambda group: (group == "Y").sum())
-    washroom_df_count
-    washroom_df_count.plot.bar()
-    plt.title("Count of Binary Features when Washrooms are Present")
-    plt.ylabel("Count")
-    plt.savefig(os.path.join(plot_to, "binary_features_washroom.png"), dpi=300, bbox_inches="tight", transparent=False)
-
-    # Visualize binary features when there is no washroom
-    no_washroom_df = binary_df[binary_df[target] == "N"]
-    no_washroom_df_count = no_washroom_df.groupby(target)[binary_features].apply(lambda group: (group == "Y").sum())
-    no_washroom_df_count
-    no_washroom_df_count.plot.bar()
-    plt.title("Count of Binary Features when Washrooms are Absent")
-    plt.ylabel("Count")
-    plt.savefig(os.path.join(plot_to, "binary_features_nowashroom.png"), dpi=300, bbox_inches="tight", transparent=False)
+    plot_binary_features(train_df, binary_cols=binary_features, target="Washrooms", plot_to=plot_to)
 
     
 if __name__ == '__main__':
